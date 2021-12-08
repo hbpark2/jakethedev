@@ -42,7 +42,7 @@ const Meta = ({ data }: MetaProps) => {
       {image ? <link rel="image_src" href={image} /> : null}
       {image ? <meta itemProp="image" content={image} /> : null}
 
-      <meta property="og:site_name" content="canvas" />
+      <meta property="og:site_name" content="jakethedev" />
       <meta property="og:title" content={title} />
       {description ? (
         <meta property="og:description" content={description} />
@@ -53,7 +53,7 @@ const Meta = ({ data }: MetaProps) => {
       {image ? <meta property="og:image" content={image} /> : null}
       {width ? <meta property="og:image:width" content={width} /> : null}
       {height ? <meta property="og:image:height" content={height} /> : null}
-      <meta property="fb:pages" content="canvas" />
+      <meta property="fb:pages" content="jakethedev" />
 
       {/* change type of twitter if there is no image? */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -62,7 +62,7 @@ const Meta = ({ data }: MetaProps) => {
         <meta name="twitter:description" content={description} />
       ) : null}
       {image ? <meta name="twitter:image" content={image} /> : null}
-      <meta name="twitter:site" content="@canvas" />
+      <meta name="twitter:site" content="@jakethedev" />
       {canonical ? (
         <link rel="alternate" href={data.canonical} hrefLang={lang} />
       ) : null}
