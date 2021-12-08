@@ -6,7 +6,13 @@ type StoreProviderProp = {
   children: React.ReactNode;
 };
 
-type CursorState = "biggerInvert" | "bigger" | "";
+type CursorState =
+  | "biggerInvert"
+  | "bigger"
+  | "biggerLink"
+  | "image"
+  | "jake"
+  | "";
 
 export type TabStateType = {
   id: number;
@@ -45,23 +51,41 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
   const [tabState, setTabState] = useState<TabStateType>({
     id: 1,
     theme: "01",
-    bgImage: TheGN1,
-    text: "THEME 01",
+    bgImage: Bubble1,
+    text: "Profile",
   });
+
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [currentPosition, setCurrentPosition] = useState<CursorState>("");
   const [invert, setInvert] = useState<boolean>(false);
 
   const changeCursorState = (state: string) => {
     if (window.innerWidth > 639) {
-      if (state === "biggerInvert") {
-        setCurrentPosition("bigger");
-        setInvert(true);
-      } else if (state === "bigger") {
-        setCurrentPosition("bigger");
-      } else {
-        setCurrentPosition("");
-        setInvert(false);
+      switch (state) {
+        case "biggerInvert":
+          setCurrentPosition("bigger");
+          setInvert(true);
+          break;
+
+        case "bigger":
+          setCurrentPosition("bigger");
+          break;
+
+        case "image":
+          setCurrentPosition("image");
+          break;
+        case "jake":
+          setCurrentPosition("jake");
+          break;
+        case "link":
+          setCurrentPosition("bigger");
+          setCurrentPosition("biggerLink");
+          break;
+
+        default:
+          setCurrentPosition("");
+          setInvert(false);
+          break;
       }
     } else {
       return null;
@@ -69,7 +93,12 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
   };
 
   const onTabClick = (theme: TabStateType) => {
-    setTabState({ id: theme.id, theme: theme.theme, bgImage: theme.bgImage });
+    setTabState({
+      id: theme.id,
+      theme: theme.theme,
+      bgImage: theme.bgImage,
+      text: theme.text,
+    });
   };
 
   const value: ValueType = {

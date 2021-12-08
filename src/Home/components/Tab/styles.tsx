@@ -6,12 +6,13 @@ export const TabContainer = styled.ul<{ scrl: number }>`
 	top: 50%;
 	left: calc(50% + 430px);
 	transform: translate(-50%, -50%);
-	transition: filter 0.5s;
+	transition: filter 0.5s opacity 0.5s visibility 0.5s;
 	z-index: 200;
 	animation: ${FadeIn} 1s;
+	min-width: 150px;
 
 	${({ scrl }) =>
-		scrl > 1100
+		scrl > 1300
 			? css`
 					position: fixed;
 					left: auto;
@@ -37,6 +38,13 @@ export const TabList = styled.li`
 	align-items: center;
 	margin: 15px 0;
 	word-break: keep-all;
+	cursor: pointer;
+	&:hover {
+		button {
+			background-color: ${({ theme: { accentColor } }) => accentColor};
+			color: ${({ theme: { bgColor1 } }) => bgColor1};
+		}
+	}
 
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		margin: 40px 0;
@@ -77,7 +85,7 @@ export const TabButton = styled.button<{ current: boolean }>`
 	border: 1px solid ${({ theme: { accentColor } }) => accentColor};
 	font-family: ${({ theme: { accentFont } }) => accentFont};
 	font-size: 28px;
-	cursor: none;
+	/* cursor: none; */
 	transition: background-color 0.5s;
 	border-radius: 50%;
 
@@ -85,17 +93,13 @@ export const TabButton = styled.button<{ current: boolean }>`
 		current
 			? css`
 					background-color: ${accentColor};
-					color: inherit;
+					color: ${({ theme: { bgColor1 } }) => bgColor1};
 			  `
 			: css`
 					background-color: transparent;
 					color: ${accentColor};
 			  `};
 
-	&:hover {
-		background-color: ${({ theme: { accentColor } }) => accentColor};
-		color: inherit;
-	}
 	@media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
 		width: 120px;
 		height: 120px;

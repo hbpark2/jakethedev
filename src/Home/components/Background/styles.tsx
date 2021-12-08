@@ -10,10 +10,11 @@ export const Container = styled.div<{ blur: boolean }>`
   transition: background-color 0.5s;
   background-color: ${({ theme: { bgColor1 } }) => bgColor1};
   transition: filter 0.5s;
-  ${({ blur }) => (blur ? "filter:blur(10px)" : "filter:none")};
+  ${({ blur }) => (blur ? "filter:blur(5px)" : "filter:none")};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.nomalPC} {
     overflow-x: hidden;
+    display: none;
   }
 `;
 
@@ -91,7 +92,7 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
         `};
 
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-    width: 75vw;
+    width: 70vw;
     height: 550px;
   }
 `;

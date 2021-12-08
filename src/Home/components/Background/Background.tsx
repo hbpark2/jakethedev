@@ -26,6 +26,7 @@ const Background: React.FC = () => {
 		}, 50);
 		setLoading(true);
 	}, [tabState]);
+
 	useEffect(() => {
 		if (window.innerWidth > 639) {
 			if (scrollY > 800) {
@@ -51,16 +52,40 @@ const Background: React.FC = () => {
 							<LoopWrap>
 								<ImageWrap>
 									{imgArr.map((item, index) => {
-										return (
-											<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
-										);
+										if (window.innerWidth < 640) {
+											return (
+												index < 2 && (
+													<ImageBox
+														key={`img${index}`}
+														invert={invert}
+														bgImage={tabState.bgImage}
+													/>
+												)
+											);
+										} else {
+											return (
+												<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
+											);
+										}
 									})}
 								</ImageWrap>
 								<ImageWrap>
 									{imgArr.map((item, index) => {
-										return (
-											<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
-										);
+										if (window.innerWidth < 640) {
+											return (
+												index < 2 && (
+													<ImageBox
+														key={`img${index}`}
+														invert={invert}
+														bgImage={tabState.bgImage}
+													/>
+												)
+											);
+										} else {
+											return (
+												<ImageBox key={`img${index}`} invert={invert} bgImage={tabState.bgImage} />
+											);
+										}
 									})}
 								</ImageWrap>
 							</LoopWrap>
@@ -68,7 +93,6 @@ const Background: React.FC = () => {
 					</Inner>
 				)}
 			</Container>
-			<Noise />
 		</>
 	);
 };

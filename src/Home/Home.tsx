@@ -3,14 +3,15 @@ import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
-import Bubble2 from "../Assets/bubble1.jpg";
-import TheGN1 from "../Assets/thegn1.png";
-import { Container, Image, ImageWrap, ImgSection, TextWrap } from "./styles";
+import { Container } from "./styles";
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import { CurrentContext } from "../Context/ContextStore";
 
+import Profile from "./components/Profile/Profile";
+import Noise from "../Components/Common/Noise";
+
 const Home = () => {
-  const { currentPosition, changeCursorState, menuOpen } =
+  const { currentPosition, changeCursorState, menuOpen, tabState } =
     useContext(CurrentContext);
   const [loading, setLoading] = useState<boolean>(true);
   const { scrollY } = useScroll();
@@ -41,30 +42,24 @@ const Home = () => {
         {!loading && (
           <>
             <IntroBackground scrollY={scrollY} />
-            <ImgSection scrl={scrollY} aria-hidden={!loading}>
-              <ImageWrap>
-                <Image
-                  src={TheGN1}
-                  alt=""
-                  onMouseOver={() => changeCursorState("biggerInvert")}
-                  onMouseOut={() => changeCursorState("")}
-                />
-              </ImageWrap>
-              <TextWrap></TextWrap>
-            </ImgSection>
-            <ImgSection scrl={scrollY} aria-hidden={!loading}>
-              <ImageWrap>
-                <Image
-                  src={TheGN1}
-                  alt=""
-                  onMouseOver={() => changeCursorState("biggerInvert")}
-                  onMouseOut={() => changeCursorState("")}
-                />
-              </ImageWrap>
-              <TextWrap></TextWrap>
-            </ImgSection>
+            {tabState.text === "Profile" && (
+              <Profile
+                loading={loading}
+                scrollY={scrollY}
+                changeCursorState={changeCursorState}
+              />
+            )}
+
+            {tabState.text === "TH-ROAD" && (
+              <Profile
+                loading={loading}
+                scrollY={scrollY}
+                changeCursorState={changeCursorState}
+              />
+            )}
           </>
         )}
+        <Noise />
       </Container>
     </>
   );
