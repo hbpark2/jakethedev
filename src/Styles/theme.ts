@@ -79,7 +79,6 @@ export const GlobalStyles = createGlobalStyle`
 	body::-webkit-scrollbar {
 	width: 5px;
 	height:5px;
-	/* display: none; */
 	}
 
 	body::-webkit-scrollbar-thumb {
