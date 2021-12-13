@@ -54,6 +54,7 @@ export const skyblueTheme: DefaultTheme = {
 
 //global
 export const GlobalStyles = createGlobalStyle`
+  //
   ${reset}
 
 	body, html{
