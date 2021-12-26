@@ -31,8 +31,8 @@ const Tab = () => {
               0{index + 1}
             </TabButton>
             <TabSpan>
-              {/* {item.type && <TabSpanTop>{item.type}</TabSpanTop>} */}
-              {item.text}
+              {item.type && <TabSpanTop>{item.type}</TabSpanTop>}
+              {item.type ? "Works" : item.text}
               <TabLine current={tabState.id === index + 1} />
             </TabSpan>
           </TabList>

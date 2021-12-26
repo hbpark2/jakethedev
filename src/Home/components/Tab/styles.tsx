@@ -67,7 +67,7 @@ export const TabSpan = styled.span`
 
 export const TabSpanTop = styled.span`
   display: block;
-  font-size: 13px;
+  /* font-size: 13px; */
 `;
 
 export const TabLine = styled.i<{ current: boolean }>`

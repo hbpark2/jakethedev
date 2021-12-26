@@ -9,7 +9,7 @@ export const TabArr: TabStateType[] = [
     id: 1,
     bgImage: Bubble1,
     theme: "01",
-    text: "Profile",
+    text: "Profile & Carrer",
   },
   {
     id: 2,
@@ -30,6 +30,5 @@ export const TabArr: TabStateType[] = [
     bgImage: Bubble3,
     theme: "01",
     text: "Resume",
-    type: "Resume",
   },
 ];

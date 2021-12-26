@@ -50,7 +50,7 @@ const Home = () => {
               />
             )}
 
-            {tabState.text === "TH-ROAD" && (
+            {tabState.text === "Front-end" && (
               <Profile
                 loading={loading}
                 scrollY={scrollY}
