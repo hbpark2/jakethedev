@@ -19,7 +19,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  filter: blur(1.5px);
+  /* filter: blur(1.5px); */
   animation-name: ${FadeIn};
   animation-duration: 1s;
   transition: border-color 0.5s;
@@ -113,10 +113,10 @@ export const CircleBox = styled.article<{ scrl: number }>`
     ${({ scrl }) =>
       scrl > 300
         ? css`
-            filter: blur(0.5px);
+            /* filter: blur(0.5px); */
           `
         : css`
-            filter: blur(1.5px);
+            /* filter: blur(1.5px); */
           `}
 
     ${({ scrl }) =>

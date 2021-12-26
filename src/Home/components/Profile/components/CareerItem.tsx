@@ -3,6 +3,12 @@ import styled from "styled-components";
 const Container = styled.div`
   margin: 40px 0;
 
+  .carrer-type {
+    display: block;
+    margin-bottom: 10px;
+    font-family: ${({ theme: { defaultFont } }) => defaultFont};
+    color: rgba(255, 255, 255, 0.9);
+  }
   .career-title {
     font-family: ${({ theme: { defaultFont } }) => defaultFont};
     font-weight: 900;
@@ -39,6 +45,7 @@ const Line = styled.i`
 `;
 
 interface CareerItemProps {
+  type: string;
   title: string;
   subTitle: string;
   date: string;
@@ -46,6 +53,7 @@ interface CareerItemProps {
 }
 
 const CareerItem: React.FC<CareerItemProps> = ({
+  type,
   title,
   subTitle,
   date,
@@ -54,6 +62,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
   return (
     <Container>
       <h4>
+        <span className="carrer-type">{type}</span>
         <span className="career-title">{title}</span>
         <span className="career-subtitle">{subTitle}</span>
         <span className="date">{date}</span>

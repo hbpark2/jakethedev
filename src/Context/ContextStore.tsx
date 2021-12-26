@@ -19,6 +19,7 @@ export type TabStateType = {
   theme: "01" | "02" | "03" | "04";
   bgImage: string;
   text?: string;
+  type?: string;
 };
 
 type ValueType = {
@@ -40,7 +41,7 @@ export const CurrentContext = createContext<ValueType>({
   invert: false,
   setInvert: () => {},
   currentPosition: "",
-  tabState: { id: 1, theme: "01", bgImage: Bubble1 },
+  tabState: { id: 1, theme: "01", bgImage: Bubble1, type: "" },
   setTabState: () => {},
   setCurrentPosition: () => {},
   changeCursorState: () => {},
@@ -53,6 +54,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
     theme: "01",
     bgImage: Bubble1,
     text: "Profile",
+    type: "",
   });
 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -98,6 +100,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
       theme: theme.theme,
       bgImage: theme.bgImage,
       text: theme.text,
+      type: theme.type,
     });
   };
 

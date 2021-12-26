@@ -2,7 +2,14 @@ import { useContext, useState } from "react";
 import { TabArr } from "./tabdata";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { useScroll } from "../../../Hooks/Scroll";
-import { TabButton, TabContainer, TabLine, TabList, TabSpan } from "./styles";
+import {
+  TabButton,
+  TabContainer,
+  TabLine,
+  TabList,
+  TabSpan,
+  TabSpanTop,
+} from "./styles";
 
 const Tab = () => {
   const { changeCursorState, onTabClick, tabState } =
@@ -24,6 +31,7 @@ const Tab = () => {
               0{index + 1}
             </TabButton>
             <TabSpan>
+              {/* {item.type && <TabSpanTop>{item.type}</TabSpanTop>} */}
               {item.text}
               <TabLine current={tabState.id === index + 1} />
             </TabSpan>

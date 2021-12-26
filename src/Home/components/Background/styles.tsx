@@ -14,7 +14,7 @@ export const Container = styled.div<{ blur: boolean }>`
 
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.nomalPC} {
     overflow-x: hidden;
-    display: none;
+    /* display: none; */
   }
 `;
 

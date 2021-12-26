@@ -96,6 +96,7 @@ const Profile: React.FC<{
             {careerArr.map((item, index) => (
               <CareerItem
                 key={`career${index}`}
+                type={item.type}
                 title={item.title}
                 subTitle={item.subTitle}
                 date={item.date}
@@ -109,6 +110,7 @@ const Profile: React.FC<{
                     </React.Fragment>
                   );
                 })}
+                각 상세설명으로 가기 버튼
               </CareerItem>
             ))}
           </CareerInner>

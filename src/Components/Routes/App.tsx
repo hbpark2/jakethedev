@@ -14,7 +14,7 @@ function App() {
     <>
       <Meta
         data={{
-          title: "Jake",
+          title: "JakeTheDeveloper",
           description: "jake's profile site",
           locale: "ko",
         }}
