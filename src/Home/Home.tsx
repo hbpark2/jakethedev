@@ -42,7 +42,7 @@ const Home = () => {
         {!loading && (
           <>
             <IntroBackground scrollY={scrollY} />
-            {tabState.text === "Profile" && (
+            {tabState.text === "Profile & Career" && (
               <Profile
                 loading={loading}
                 scrollY={scrollY}
@@ -50,7 +50,7 @@ const Home = () => {
               />
             )}
 
-            {tabState.text === "Front-end" && (
+            {tabState.text === "Front-end Works" && (
               <Profile
                 loading={loading}
                 scrollY={scrollY}
