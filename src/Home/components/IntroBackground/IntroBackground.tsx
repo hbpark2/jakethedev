@@ -42,7 +42,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
             onMouseOver={() => changeCursorState("biggerLink")}
             onMouseOut={() => changeCursorState("")}
           >
-            <IntroCenterText scrl={scrollY}>{tabState.text}</IntroCenterText>
+            <IntroCenterText scrl={scrollY}>
+              {tabState.type === "Profile" ? "Profile" : tabState.text}
+            </IntroCenterText>
           </IntroCenter>
         </IntroSection>
         {scrollY < 1300 && <Tab />}

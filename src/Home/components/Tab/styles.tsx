@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
 
@@ -109,5 +110,17 @@ export const TabButton = styled.button<{ current: boolean }>`
     width: 120px;
     height: 120px;
     font-size: 52px;
+  }
+`;
+
+export const TabLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    button {
+      background-color: ${({ theme: { accentColor } }) => accentColor};
+      color: ${({ theme: { bgColor1 } }) => bgColor1};
+    }
   }
 `;

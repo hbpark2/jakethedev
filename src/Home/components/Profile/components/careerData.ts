@@ -1,6 +1,13 @@
 export const careerArr = [
   {
     type: "FRONT-END",
+    title: "RVN",
+    subTitle: "RVN event 이벤트 페이지",
+    date: "2021.12.20 ~ 2021.12.22",
+    children: "RVN - 이밴트 페이지 (반응형)",
+  },
+  {
+    type: "FRONT-END",
     title: "TH-ROAD",
     subTitle: "디자이너 포트폴리오 ( 개인외주 )",
     date: "2021.11.01 ~ 2021.12.31",

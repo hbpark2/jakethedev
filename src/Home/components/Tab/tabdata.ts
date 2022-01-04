@@ -10,6 +10,7 @@ export const TabArr: TabStateType[] = [
     bgImage: Bubble1,
     theme: "01",
     text: "Profile & Career",
+    type: 'Profile'
   },
   {
     id: 2,

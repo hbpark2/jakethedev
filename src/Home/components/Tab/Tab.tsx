@@ -6,6 +6,7 @@ import {
   TabButton,
   TabContainer,
   TabLine,
+  TabLink,
   TabList,
   TabSpan,
   TabSpanTop,
@@ -20,7 +21,7 @@ const Tab = () => {
   return (
     <TabContainer scrl={scrollY}>
       {TabArr.map((item, index) => {
-        return (
+        return item.text !== "Resume" ? (
           <TabList
             key={`tab${index}`}
             onMouseOver={() => changeCursorState("bigger")}
@@ -36,6 +37,22 @@ const Tab = () => {
               <TabLine current={tabState.id === index + 1} />
             </TabSpan>
           </TabList>
+        ) : (
+          <TabLink
+            key={`tab${index}`}
+            to="/resume"
+            onMouseOver={() => changeCursorState("bigger")}
+            onMouseOut={() => changeCursorState("")}
+            onClick={() => tabState.id !== index + 1 && onTabClick(item)}
+          >
+            <TabButton current={tabState.id === index + 1}>
+              0{index + 1}
+            </TabButton>
+            <TabSpan>
+              {item.text}
+              <TabLine current={tabState.id === index + 1} />
+            </TabSpan>
+          </TabLink>
         );
       })}
     </TabContainer>

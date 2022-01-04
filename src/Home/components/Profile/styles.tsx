@@ -9,17 +9,17 @@ export const Container = styled.article<{ scrl: number }>`
   z-index: 1;
   animation-name: ${FadeIn};
   animation-duration: 1s;
-  /* background-color: ${({ theme: { bgColor1 } }) => bgColor1}; */
   font-size: 22px;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 92%,
-    rgba(77, 94, 101, 0) 100%
-  );
   padding: 100px 20px;
   padding-left: 160px;
   font-family: ${({ theme: { defaultFont } }) => defaultFont};
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 95%,
+    rgba(77, 94, 101, 0) 100%
+  );
+
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
     padding-left: 0;
 
@@ -78,7 +78,7 @@ export const NameWrap = styled.div`
   }
   .name-span {
     font-size: 62px;
-    line-height: 1.8em;
+    line-height: 1.4em;
     font-weight: 900;
     letter-spacing: 5px;
     font-family: ${({ theme: { accentFont } }) => accentFont};
@@ -96,7 +96,7 @@ export const NameWrap = styled.div`
     content: "(00)-name";
     display: block;
     font-family: ${({ theme: { accentFont } }) => accentFont};
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: start;
     font-size: 24px;
     line-height: 1em;
@@ -200,9 +200,3 @@ export const Career = styled(NameWrap)`
 export const CareerInner = styled.div`
   color: ${({ theme: { bgColor1 } }) => bgColor1};
 `;
-
-// export const Career = styled.div`
-// 	div {
-// 		padding-left: 140px;
-// 	}
-// `;

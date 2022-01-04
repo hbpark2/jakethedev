@@ -41,7 +41,7 @@ export const CurrentContext = createContext<ValueType>({
   invert: false,
   setInvert: () => {},
   currentPosition: "",
-  tabState: { id: 1, theme: "01", bgImage: Bubble1, type: "" },
+  tabState: { id: 1, theme: "01", bgImage: Bubble1, type: "Profile" },
   setTabState: () => {},
   setCurrentPosition: () => {},
   changeCursorState: () => {},
@@ -54,7 +54,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
     theme: "01",
     bgImage: Bubble1,
     text: "Profile",
-    type: "",
+    type: "Profile",
   });
 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);

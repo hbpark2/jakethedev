@@ -45,7 +45,6 @@ const Profile: React.FC<{
 
           <IntroParagraph>
             I'm Front-end developer based in Seoul, Korea
-            <br />
             {/* <span>HTML5 & CSS3</span>
             <br />
             구조화와 정보전달에 목적을 둔 HTML 마크업 */}
@@ -62,7 +61,7 @@ const Profile: React.FC<{
             onMouseOver={() => changeCursorState("jake")}
             onMouseOut={() => changeCursorState("")}
           >
-            Go To Jake's GitHub, Let me show you how it's done
+            Go to Jake's GitHub
           </a>
         </GitHubLinkWrap>
 
@@ -95,7 +94,7 @@ const Profile: React.FC<{
           <CareerInner>
             {careerArr.map((item, index) => (
               <CareerItem
-                key={`career${index}`}
+                key={`career ${index}`}
                 type={item.type}
                 title={item.title}
                 subTitle={item.subTitle}
@@ -110,7 +109,6 @@ const Profile: React.FC<{
                     </React.Fragment>
                   );
                 })}
-                각 상세설명으로 가기 버튼
               </CareerItem>
             ))}
           </CareerInner>
