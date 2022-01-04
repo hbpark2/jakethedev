@@ -22,6 +22,7 @@ const Profile: React.FC<{
   scrollY: number;
   changeCursorState: Function;
 }> = ({ loading, scrollY, changeCursorState }) => {
+  //
   return (
     <Container scrl={scrollY} aria-hidden={!loading}>
       <Inner>
