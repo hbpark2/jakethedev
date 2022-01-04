@@ -281,7 +281,7 @@ export const IntroCenter = styled.p<{ scrl: number }>`
 
 export const IntroCenterText = styled.span<{ scrl: number }>`
   display: block;
-  font-size: 140px;
+  font-size: 100px;
   line-height: 1em;
   font-family: ${({ theme: { accentFont } }) => accentFont};
   /* font-style: italic; */
@@ -289,7 +289,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
   text-align: center;
   transition: opacity 1s, transform 1s, color 0.5s;
   text-shadow: ${({ theme: { textShadow } }) => textShadow};
-
+  font-weight: 100;
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
     font-size: 80px;
     vertical-align: top;
@@ -312,7 +312,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
       scrl > 300
         ? css`
             opacity: 1;
-            transform: translateY(-30px);
+            transform: translateY(-20px);
             filter: blur(0.5px);
           `
         : css`

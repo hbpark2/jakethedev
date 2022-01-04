@@ -1,5 +1,8 @@
+import styled from "styled-components";
+const Container = styled.main``;
+
 const Detail = () => {
-	return <div></div>;
+  return <Container></Container>;
 };
 
 export default Detail;

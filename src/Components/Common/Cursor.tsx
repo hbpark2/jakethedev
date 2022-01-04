@@ -4,6 +4,8 @@ import Drawing from "../../Assets/drawing-19.jpg";
 import Profile from "../../Assets/portrait-3.png";
 import JakeImg from "../../Assets/jake.png";
 import { CursorImage, JakeImage } from "../../Styles/animation";
+import { useLocation } from "react-router-dom";
+import { off } from "process";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -93,8 +95,10 @@ type PostionTypes = {
 
 interface CursorProps {
   currentPosition: string;
+  loading?: boolean;
 }
-const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
+const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
+  const location = useLocation();
   const [position, setPosition] = useState<PostionTypes>({ x: -80, y: -80 });
   let mouseX = -80;
   let mouseY = -80;
@@ -117,18 +121,20 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition }) => {
 
   const tail = () => {
     const cursorTail = document.querySelector(".cursor-tail")! as HTMLElement;
-    const tail_x = parseInt(cursorTail.style?.left.replace("px", "")) || 0;
-    const tail_y = parseInt(cursorTail.style?.top.replace("px", "")) || 0;
-    cursorTail.style.top = `${Math.round(tail_y + (mouseY - tail_y) / 8)}px`;
-    cursorTail.style.left = `${Math.round(tail_x + (mouseX - tail_x) / 8)}px`;
-    requestAnimationFrame(tail);
+    if (cursorTail) {
+      const tail_x = parseInt(cursorTail.style?.left.replace("px", "")) || 0;
+      const tail_y = parseInt(cursorTail.style?.top.replace("px", "")) || 0;
+      cursorTail.style.top = `${Math.round(tail_y + (mouseY - tail_y) / 8)}px`;
+      cursorTail.style.left = `${Math.round(tail_x + (mouseX - tail_x) / 8)}px`;
+      requestAnimationFrame(tail);
+    }
   };
 
   useEffect(() => {
     addEventListeners();
 
     return () => removeEventListeners();
-  }, []);
+  }, [location]);
 
   return (
     <>

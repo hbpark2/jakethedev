@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
 
@@ -9,7 +10,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
   transition: filter 0.5s opacity 0.5s visibility 0.5s;
   z-index: 200;
   animation: ${FadeIn} 1s;
-  min-width: 200px;
+  min-width: 210px;
 
   ${({ scrl }) =>
     scrl > 1300
@@ -67,8 +68,12 @@ export const TabSpan = styled.span`
 
 export const TabSpanTop = styled.span`
   display: block;
+<<<<<<< HEAD
   font-size: 16px;
   margin-bottom: 2px;
+=======
+  /* font-size: 13px; */
+>>>>>>> feature/v2
 `;
 
 export const TabLine = styled.i<{ current: boolean }>`
@@ -110,5 +115,17 @@ export const TabButton = styled.button<{ current: boolean }>`
     width: 120px;
     height: 120px;
     font-size: 52px;
+  }
+`;
+
+export const TabLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    button {
+      background-color: ${({ theme: { accentColor } }) => accentColor};
+      color: ${({ theme: { bgColor1 } }) => bgColor1};
+    }
   }
 `;

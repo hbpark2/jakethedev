@@ -9,6 +9,8 @@ import { CurrentContext } from "../Context/ContextStore";
 
 import Profile from "./components/Profile/Profile";
 import Noise from "../Components/Common/Noise";
+import Works from "./components/Works/Works";
+import Resume from "./components/Resume/Resume";
 
 const Home = () => {
   const { currentPosition, changeCursorState, menuOpen, tabState } =
@@ -20,6 +22,7 @@ const Home = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+    return () => setLoading(true);
   }, []);
 
   useEffect(() => {
@@ -35,14 +38,15 @@ const Home = () => {
   return (
     <>
       <ScrollCircle />
-      <Cursor currentPosition={currentPosition} />
+      {!loading && <Cursor currentPosition={currentPosition} />}
       <Background />
       <Container aria-hidden={!menuOpen}>
         <h2 className="blind">contents</h2>
+
         {!loading && (
           <>
             <IntroBackground scrollY={scrollY} />
-            {tabState.text === "Profile" && (
+            {tabState.type === "Profile" && (
               <Profile
                 loading={loading}
                 scrollY={scrollY}
@@ -50,8 +54,16 @@ const Home = () => {
               />
             )}
 
-            {tabState.text === "TH-ROAD" && (
-              <Profile
+            {tabState.type === "Front-end" && (
+              <Works
+                loading={loading}
+                scrollY={scrollY}
+                changeCursorState={changeCursorState}
+              />
+            )}
+
+            {tabState.type === "Back-end" && (
+              <Works
                 loading={loading}
                 scrollY={scrollY}
                 changeCursorState={changeCursorState}
