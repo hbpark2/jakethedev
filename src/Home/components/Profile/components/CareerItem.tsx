@@ -89,6 +89,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
   date,
   children,
 }) => {
+  //
   const { changeCursorState } = useContext(CurrentContext);
   return (
     <Container>
