@@ -24,6 +24,7 @@ const Works: React.FC<{
                 title={item.title}
                 subTitle={item.subTitle}
                 date={item.date}
+                skills={item.skills}
               >
                 {item.children.split("<br />").map((line, index) => {
                   let makeSpanKey = `line${index}`;

@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { TabLine } from "../../../Home/components/Tab/styles";
 import { TabArr } from "../../../Home/components/Tab/tabdata";
@@ -18,9 +19,12 @@ import {
 const Header = () => {
   const { menuOpen, setMenuOpen, changeCursorState, onTabClick, tabState } =
     useContext(CurrentContext);
+
+  const location = useLocation();
   const onOpenMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  // console.log(location.pathname);
 
   return (
     <Container>
@@ -29,6 +33,7 @@ const Header = () => {
         onClick={onOpenMenu}
         onMouseOver={() => changeCursorState("biggerInvert")}
         onMouseOut={() => changeCursorState("")}
+        disable={location.pathname === "/resume"}
       >
         {!menuOpen ? "MENU" : "CLOSE"}
       </MenuBtn>

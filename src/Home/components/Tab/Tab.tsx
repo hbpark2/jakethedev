@@ -43,7 +43,7 @@ const Tab = () => {
             to="/resume"
             onMouseOver={() => changeCursorState("bigger")}
             onMouseOut={() => changeCursorState("")}
-            onClick={() => tabState.id !== index + 1 && onTabClick(item)}
+            // onClick={() => tabState.id !== index + 1 && onTabClick(item)}
           >
             <TabButton current={tabState.id === index + 1}>
               0{index + 1}

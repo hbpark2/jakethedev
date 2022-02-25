@@ -28,8 +28,8 @@ export const TabArr: TabStateType[] = [
   },
   {
     id: 4,
-    bgImage: Bubble3,
-    theme: "01",
+    bgImage: Bubble4,
+    theme: "02",
     text: "Resume",
   },
 ];

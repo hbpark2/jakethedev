@@ -85,7 +85,7 @@ export const TabLine = styled.i<{ current: boolean }>`
   transition: width 1s;
 `;
 
-export const TabButton = styled.button<{ current: boolean }>`
+export const TabButton = styled.button<{ current?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,3 +129,7 @@ export const TabLink = styled(Link)`
     }
   }
 `;
+
+export const TabLinkBlankOnTab = styled(TabLink)`
+
+`

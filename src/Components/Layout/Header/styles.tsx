@@ -8,7 +8,8 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   width: calc(100% - 80px);
-  padding: 50px;
+  /* padding: 50px; */
+  margin: 50px;
   z-index: 200;
 
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
@@ -28,7 +29,8 @@ export const Logo = styled.h1`
   } ;
 `;
 
-export const MenuBtn = styled.button`
+export const MenuBtn = styled.button<{ disable?: boolean }>`
+  display: ${({ disable }) => (disable ? "none" : "block")};
   position: fixed;
   top: 55px;
   right: 55px;
@@ -36,6 +38,7 @@ export const MenuBtn = styled.button`
   color: ${({ theme: { accentColor } }) => accentColor};
   font-family: ${({ theme: { accentFont } }) => accentFont};
   font-size: 24px;
+
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
     top: 35px;
     right: 35px;

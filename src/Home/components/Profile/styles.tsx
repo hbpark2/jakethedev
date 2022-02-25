@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
+import ProfileImage from "../../../Assets/portrait-3.png";
 
 export const Container = styled.article<{ scrl: number }>`
   position: relative;
@@ -22,6 +23,8 @@ export const Container = styled.article<{ scrl: number }>`
 
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
     padding-left: 0;
+    /* padding-right: 0; */
+    /* padding: 0 10px; */
 
     ${({ scrl }) =>
       scrl > 800
@@ -66,10 +69,15 @@ export const Inner = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   font-size: 22px;
+
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    width: 100%;
+    margin: 0 auto;
+  }
 `;
 
 export const NameWrap = styled.div`
-  width: 90%;
+  width: 94%;
   margin: 0 auto;
   padding: 80px 50px;
   line-height: 1.5em;
@@ -103,7 +111,8 @@ export const NameWrap = styled.div`
   }
 
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-    padding: 20px;
+    /* width: 40%; */
+    padding: 10px;
     & > div {
       padding-left: 0px;
     }
@@ -118,6 +127,15 @@ export const NameWrap = styled.div`
     .small-span {
       font-size: 28px;
     }
+  }
+`;
+
+export const UnderLineSpan = styled.span`
+  margin-left: 40px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    margin-left: 20px;
   }
 `;
 
@@ -157,7 +175,13 @@ export const GitHubLinkWrap = styled.span`
     text-decoration-line: underline;
   }
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
-    padding-left: 20px;
+    flex-direction: column;
+    padding: 0;
+    margin: 40px 0;
+    svg {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -199,4 +223,27 @@ export const Career = styled(NameWrap)`
 
 export const CareerInner = styled.div`
   color: ${({ theme: { bgColor1 } }) => bgColor1};
+`;
+
+export const ProfileRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+`;
+
+export const ProfileImageWrap = styled.div`
+  margin-top: 150px;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background: url(${ProfileImage}) no-repeat;
+  background-size: cover;
+  background-position: center 35%;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid ${({ theme: { accentColor } }) => accentColor};
+  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+    display: none;
+  }
 `;

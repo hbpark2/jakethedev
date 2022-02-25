@@ -58,7 +58,7 @@ const Line = styled.i`
   opacity: 0.6;
 `;
 
-const LinkButton = styled(Link)`
+const LinkButton = styled.a`
   display: block;
   width: 70%;
   text-align: center;
@@ -73,6 +73,40 @@ const LinkButton = styled(Link)`
     color: #fff;
   }
 `;
+const ModalButton = styled.button`
+  display: block;
+  width: 70%;
+  text-align: center;
+  padding: 20px 0;
+  margin: 10px 0 20px;
+  border: 1px solid ${({ theme: { bgColor1 } }) => bgColor1};
+  border-radius: 15px;
+  color: inherit;
+  font-size: 22px;
+  transition: 0.5s;
+  transition-property: color, background-color;
+  &:hover {
+    background-color: ${({ theme: { bgColor1 } }) => bgColor1};
+    color: #fff;
+  }
+`;
+
+const SkillTitle = styled.span`
+  font-weight: 600;
+`;
+
+const SkillWrap = styled.ul`
+  li {
+    font-size: 18px;
+    line-height: 1.6em;
+  }
+
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+    li {
+      font-size: 14px;
+    }
+  }
+`;
 
 interface CareerItemProps {
   type: string;
@@ -80,6 +114,8 @@ interface CareerItemProps {
   subTitle: string;
   date: string;
   children: React.ReactNode;
+  isModal?: boolean;
+  skills?: string[];
 }
 
 const CareerItem: React.FC<CareerItemProps> = ({
@@ -88,8 +124,10 @@ const CareerItem: React.FC<CareerItemProps> = ({
   subTitle,
   date,
   children,
+  isModal,
+  skills,
 }) => {
-  const { changeCursorState } = useContext(CurrentContext);
+  const { setModalOpen, changeCursorState } = useContext(CurrentContext);
 
   return (
     <Container>
@@ -106,13 +144,35 @@ const CareerItem: React.FC<CareerItemProps> = ({
         <span className="date">{date}</span>
       </h4>
       <CareerParagraph>{children}</CareerParagraph>
-      <LinkButton
-        to={`/detail/${title}`}
-        onMouseOver={() => changeCursorState("bigger")}
-        onMouseOut={() => changeCursorState("")}
-      >
-        Go to {title}
-      </LinkButton>
+      <SkillTitle>Using: </SkillTitle>
+      {skills && skills.length > 0 && (
+        <SkillWrap>
+          {skills.map((item, index) => (
+            <li key={`skill${index}`}>-{item}</li>
+          ))}
+        </SkillWrap>
+      )}
+      {isModal ? (
+        <ModalButton
+          onMouseOver={() => changeCursorState("bigger")}
+          onMouseOut={() => changeCursorState("")}
+          onClick={() => setModalOpen(true)}
+        >
+          Go to {title}
+        </ModalButton>
+      ) : (
+        <LinkButton
+          // to={`/detail/${title}`}
+          href="https://rvnnyc.com/blogs/event/holidaypromotion-2112"
+          target="_blank"
+          title="go to rvn page"
+          rel="norefferer"
+          onMouseOver={() => changeCursorState("bigger")}
+          onMouseOut={() => changeCursorState("")}
+        >
+          Go to {title}
+        </LinkButton>
+      )}
       <Line />
     </Container>
   );
