@@ -21,7 +21,7 @@ export const Container = styled.article<{ scrl: number }>`
     rgba(77, 94, 101, 0) 100%
   );
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding-left: 0;
     /* padding-right: 0; */
     /* padding: 0 10px; */
@@ -70,7 +70,7 @@ export const Inner = styled.div`
   margin: 0 auto;
   font-size: 22px;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: 100%;
     margin: 0 auto;
   }
@@ -110,7 +110,7 @@ export const NameWrap = styled.div`
     line-height: 1em;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     /* width: 40%; */
     padding: 10px;
     & > div {
@@ -134,7 +134,7 @@ export const UnderLineSpan = styled.span`
   margin-left: 40px;
   padding-bottom: 5px;
   border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     margin-left: 20px;
   }
 `;
@@ -145,7 +145,7 @@ export const Intro = styled(NameWrap)`
   &::before {
     content: "(01)-intro";
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding: 20px 20px 0 20px;
   }
 `;
@@ -159,7 +159,7 @@ export const IntroParagraph = styled.p`
   blockquote {
     font-size: 14px;
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding-left: 0;
   }
 `;
@@ -174,7 +174,7 @@ export const GitHubLinkWrap = styled.span`
     line-height: 1.4em;
     text-decoration-line: underline;
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     flex-direction: column;
     padding: 0;
     margin: 40px 0;
@@ -194,7 +194,7 @@ export const Skill = styled(NameWrap)`
   &::before {
     content: "(02)-skill";
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding: 20px 20px 0 20px;
   }
 `;
@@ -216,7 +216,7 @@ export const Career = styled(NameWrap)`
     content: "(03)-career";
     color: rgba(255, 255, 255, 0.7);
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding: 20px 20px 0 20px;
   }
 `;

@@ -12,9 +12,11 @@ export const Container = styled.header`
   margin: 50px;
   z-index: 200;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: calc(100% - 50px);
     padding: 30px;
+    padding: 0;
+    margin: 30px 25px;
   }
 `;
 
@@ -24,7 +26,7 @@ export const Logo = styled.h1`
   font-family: ${({ theme: { accentFont } }) => accentFont};
   color: ${({ theme: { accentColor } }) => accentColor};
   font-size: 54px;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     font-size: 32px;
   } ;
 `;
@@ -39,7 +41,7 @@ export const MenuBtn = styled.button<{ disable?: boolean }>`
   font-family: ${({ theme: { accentFont } }) => accentFont};
   font-size: 24px;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     top: 35px;
     right: 35px;
   }
@@ -78,7 +80,7 @@ export const NavUl = styled.ul`
   width: 80%;
   transform: translateX(-10%);
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     transform: translateX(-30%);
     display: flex;
     flex-direction: column;
@@ -106,7 +108,7 @@ export const NavList = styled.li<{ index: number; menuOpen: boolean }>`
           transform: translateX(${index}px);
         `}
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     transform: ${({ index }) => `translateX(${index * 40}px)`};
     margin: 20px 0;
   }
@@ -144,7 +146,7 @@ export const LinkButton = styled.button<{ current: boolean }>`
     color: ${({ theme: { bgColor2 } }) => bgColor2};
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: 50px;
     height: 50px;
     font-size: 24px;
@@ -165,7 +167,7 @@ export const LinkSpan = styled.span`
   color: ${({ theme: { accentColor } }) => accentColor};
   font-weight: 700;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     font-size: 24px;
   }
 

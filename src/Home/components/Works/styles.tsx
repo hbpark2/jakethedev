@@ -27,7 +27,7 @@ export const Career = styled.div`
     border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding: 20px 20px 0 20px;
     & > div {
       padding-left: 0px;

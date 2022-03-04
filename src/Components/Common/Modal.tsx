@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { CurrentContext } from "../../Context/ContextStore";
 
@@ -7,10 +7,15 @@ const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
+  width: 800px;
   height: 80vh;
   background-color: #fff;
   z-index: 500;
+  border-radius: 15px;
+  overflow-y: scroll;
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+    width: 300px;
+  }
 `;
 
 const Layer = styled.div`
@@ -23,16 +28,30 @@ const Layer = styled.div`
   z-index: 400;
 `;
 
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: transparent;
+  padding: 7px 10px;
+  color: ${({ theme }) => theme.accentColor};
+`;
+
 interface ModalProps {
   children: React.ReactChild;
 }
 
 const Modal: React.FC<ModalProps> = ({ children }) => {
   const { setModalOpen } = useContext(CurrentContext);
+
   return (
     <>
-      <Container>{children}</Container>
-      <Layer onClick={() => setModalOpen(false)}></Layer>
+      <Container>
+        <CloseButton onClick={() => setModalOpen("")}>Close</CloseButton>
+        {children}
+      </Container>
+
+      <Layer onClick={() => setModalOpen("")}></Layer>
     </>
   );
 };

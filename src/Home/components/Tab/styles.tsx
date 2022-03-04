@@ -26,7 +26,7 @@ export const TabContainer = styled.ul<{ scrl: number }>`
           position: absolute;
         `};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     display: none;
   }
   @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
@@ -130,6 +130,4 @@ export const TabLink = styled(Link)`
   }
 `;
 
-export const TabLinkBlankOnTab = styled(TabLink)`
-
-`
+export const TabLinkBlankOnTab = styled(TabLink)``;

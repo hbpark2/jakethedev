@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { CurrentContext } from "../../../../Context/ContextStore";
+import { CurrentContext, modalType } from "../../../../Context/ContextStore";
 
 const Container = styled.div`
   margin: 40px 0;
@@ -101,7 +101,7 @@ const SkillWrap = styled.ul`
     line-height: 1.6em;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     li {
       font-size: 14px;
     }
@@ -110,7 +110,7 @@ const SkillWrap = styled.ul`
 
 interface CareerItemProps {
   type: string;
-  title: string;
+  title: string | modalType;
   subTitle: string;
   date: string;
   children: React.ReactNode;
@@ -156,7 +156,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
         <ModalButton
           onMouseOver={() => changeCursorState("bigger")}
           onMouseOut={() => changeCursorState("")}
-          onClick={() => setModalOpen(true)}
+          onClick={() => setModalOpen(title)}
         >
           Go to {title}
         </ModalButton>

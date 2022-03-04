@@ -22,11 +22,12 @@ export type TabStateType = {
   type?: string;
 };
 
+export type modalType = "" | "TH-ROAD" | "orderffrice" | "K-MAS-2020";
 type ValueType = {
   menuOpen: boolean;
   setMenuOpen: (T: boolean) => void;
-  modalOpen: boolean;
-  setModalOpen: (T: boolean) => void;
+  modalOpen: modalType | string;
+  setModalOpen: (T: modalType | string) => void;
   invert: boolean;
   setInvert: (T: boolean) => void;
   currentPosition: CursorState;
@@ -40,7 +41,7 @@ type ValueType = {
 export const CurrentContext = createContext<ValueType>({
   menuOpen: false,
   setMenuOpen: () => {},
-  modalOpen: false,
+  modalOpen: "",
   setModalOpen: () => {},
   invert: false,
   setInvert: () => {},
@@ -61,7 +62,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
     type: "Profile",
   });
 
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<modalType | string>("");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [currentPosition, setCurrentPosition] = useState<CursorState>("");
   const [invert, setInvert] = useState<boolean>(false);

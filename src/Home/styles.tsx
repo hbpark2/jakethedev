@@ -5,7 +5,7 @@ export const Container = styled.main`
   width: 100%;
   z-index: 100;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     min-height: 100vh;
   }
 `;

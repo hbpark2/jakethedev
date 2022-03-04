@@ -83,7 +83,7 @@ export const CircleBox = styled.article<{ scrl: number }>`
   }
 
   // MOBILE
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     /* position: relative;
 		left: 0;
 		transform: none; */
@@ -171,7 +171,7 @@ export const FirstSection = styled.div<{ scrl: number }>`
           filter: blur(0.5px);
         `}
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     /* display: none; */
     filter: none;
     font-size: 30px;
@@ -185,7 +185,7 @@ export const IntroSection = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     margin-bottom: 60px;
   }
 `;
@@ -213,7 +213,7 @@ export const IntroTop = styled.div<{ scrl: number }>`
     flex: 0.6;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: 100%;
     transform: translateY(-50px);
     filter: none;
@@ -265,7 +265,7 @@ export const Line = styled.i`
 
 export const IntroCenter = styled.p<{ scrl: number }>`
   /* overflow: hidden; */
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     /* opacity: 0; */
     animation: ${SlideUpMo} 2s;
     animation-delay: 1s;
@@ -290,7 +290,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
   transition: opacity 1s, transform 1s, color 0.5s;
   text-shadow: ${({ theme: { textShadow } }) => textShadow};
   font-weight: 100;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     font-size: 80px;
     vertical-align: top;
     filter: none;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Container,
@@ -20,6 +20,7 @@ import CareerItem from "./components/CareerItem";
 import { careerArr } from "./components/careerData";
 import { CurrentContext } from "../../../Context/ContextStore";
 import Modal from "../../../Components/Common/Modal";
+import CareerPopup from "./components/CareerPopup";
 
 const Profile: React.FC<{
   loading: boolean;
@@ -27,7 +28,23 @@ const Profile: React.FC<{
   changeCursorState: Function;
 }> = ({ loading, scrollY, changeCursorState }) => {
   const { modalOpen } = useContext(CurrentContext);
-  console.log(modalOpen);
+
+  useEffect(() => {
+    console.log(modalOpen);
+    const mainTarget = document.querySelector("main")! as HTMLElement;
+
+    if (modalOpen !== "") {
+      document.body?.classList.remove("overflow-unset");
+      document.body?.classList.add("overflow-hidden");
+      mainTarget?.setAttribute("aria-hidden", "true");
+    }
+
+    if (modalOpen === "") {
+      document.body?.classList.remove("overflow-hidden");
+      document.body?.classList.add("overflow-unset");
+      mainTarget?.setAttribute("aria-hidden", "false");
+    }
+  }, [modalOpen]);
 
   return (
     <>
@@ -88,7 +105,7 @@ const Profile: React.FC<{
                 <li>AWS S3</li>
                 <li>Heroku</li>
                 <li>Azure</li>
-                <li>Netlifty</li>
+                <li>Netlify</li>
               </ul>
             </SkillWrap>
           </Skill>
@@ -121,7 +138,11 @@ const Profile: React.FC<{
           </Career>
         </Inner>
       </Container>
-      {modalOpen && <Modal>Modal</Modal>}
+      {modalOpen !== "" && (
+        <Modal>
+          <CareerPopup modalState={modalOpen} />
+        </Modal>
+      )}
     </>
   );
 };

@@ -45,7 +45,7 @@ const CursorTail = styled.div<{
         transform: scale(2) translate(-30%, -30%);
       `)}
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ const CursorDot = styled.i`
   background-color: #fff;
   z-index: 999;
   mix-blend-mode: difference;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     display: none;
   }
 `;

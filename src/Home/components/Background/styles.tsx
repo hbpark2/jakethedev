@@ -24,7 +24,7 @@ export const Inner = styled.div`
   animation-name: ${RightToLeft};
   animation-duration: 2s;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: 80vw;
     overflow: hidden;
     animation: none;
@@ -91,7 +91,7 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
           filter: blur(2px);
         `};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.mobile} {
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     width: 70vw;
     height: 550px;
   }

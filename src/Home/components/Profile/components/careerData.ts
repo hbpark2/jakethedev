@@ -54,7 +54,7 @@ export const careerArr = [
     date: "2021.11.01 ~ 2021.12.31",
     children:
       "K-MAS-2020 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br /> 퍼블리싱을 전담했습니다.",
-    isModal: false,
+    isModal: true,
     skills: ["React", "Google Analytics"],
   },
   {
@@ -64,7 +64,7 @@ export const careerArr = [
     date: "2021.11.01 ~ 2021.12.31",
     children:
       "orderffrice 사내에서 진행중이던 사이드프로젝트 중 프론트엔드 웹 개발을 전담했습니다.",
-    isModal: false,
+    isModal: true,
     skills: ["React"],
   },
   {

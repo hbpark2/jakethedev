@@ -24,6 +24,18 @@ const deviceMin = {
   wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
+// New MediaQuery 
+const customMediaQuery = (maxWidth: number): string =>
+  `@media (max-width: ${maxWidth}px)`;
+
+export const media = {
+  custom: customMediaQuery,
+  pc: customMediaQuery(1440),
+  tablet: customMediaQuery(768),
+  mobile: customMediaQuery(576),
+};
+//
+
 export const navyTheme: DefaultTheme = {
   bgColor1: "#4d5e65",
   bgColor2: "#706260",
