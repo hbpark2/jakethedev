@@ -11,9 +11,12 @@ import Profile from "./components/Profile/Profile";
 import Noise from "../Components/Common/Noise";
 import Works from "./components/Works/Works";
 import Resume from "./components/Resume/Resume";
+import Modal from "../Components/Common/Modal";
+import CareerPopup from "./components/Profile/components/CareerPopup";
+import ProfilePopup from "./components/Profile/components/ProfilePopup";
 
 const Home = () => {
-  const { currentPosition, changeCursorState, menuOpen, tabState } =
+  const { currentPosition, changeCursorState, menuOpen, tabState, modalOpen } =
     useContext(CurrentContext);
   const [loading, setLoading] = useState<boolean>(true);
   const { scrollY } = useScroll();
@@ -34,6 +37,22 @@ const Home = () => {
       document.body?.classList.add("overflow-unset");
     }
   }, [loading, menuOpen]);
+
+  useEffect(() => {
+    const mainTarget = document.querySelector("main")! as HTMLElement;
+
+    if (modalOpen !== "") {
+      document.body?.classList.remove("overflow-unset");
+      document.body?.classList.add("overflow-hidden");
+      mainTarget?.setAttribute("aria-hidden", "true");
+    }
+
+    if (modalOpen === "") {
+      document.body?.classList.remove("overflow-hidden");
+      document.body?.classList.add("overflow-unset");
+      mainTarget?.setAttribute("aria-hidden", "false");
+    }
+  }, [modalOpen]);
 
   return (
     <>
@@ -73,6 +92,15 @@ const Home = () => {
         )}
         <Noise />
       </Container>
+      {modalOpen !== "" && (
+        <Modal>
+          {modalOpen === "Profile" ? (
+            <ProfilePopup />
+          ) : (
+            <CareerPopup modalState={modalOpen} />
+          )}
+        </Modal>
+      )}
     </>
   );
 };

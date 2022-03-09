@@ -12,7 +12,7 @@ export const Container = styled.article<{ scrl: number }>`
   animation-duration: 1s;
   font-size: 22px;
   padding: 100px 20px;
-  padding-left: 160px;
+  /* padding-left: 160px; */
   font-family: ${({ theme: { defaultFont } }) => defaultFont};
   background: rgb(0, 0, 0);
   background: linear-gradient(
@@ -79,10 +79,12 @@ export const Inner = styled.div`
 export const NameWrap = styled.div`
   width: 94%;
   margin: 0 auto;
-  padding: 80px 50px;
+  padding: 100px 50px 20px;
   line-height: 1.5em;
+
   & > div {
-    padding-left: 140px;
+    /* padding-left: 140px; */
+    padding-left: 44px;
   }
   .name-span {
     font-size: 62px;
@@ -103,10 +105,12 @@ export const NameWrap = styled.div`
   &::before {
     content: "(00)-name";
     display: block;
-    font-family: ${({ theme: { accentFont } }) => accentFont};
+    /* font-family: ${({ theme: { accentFont } }) => accentFont}; */
+    font-family: ${({ theme: { paragraphFont } }) => paragraphFont};
     margin-bottom: 20px;
     text-align: start;
-    font-size: 24px;
+    /* font-size: 24px; */
+    font-size: 18px;
     line-height: 1em;
   }
 
@@ -130,12 +134,15 @@ export const NameWrap = styled.div`
   }
 `;
 
+export const SectionInner = styled.div``;
+
 export const UnderLineSpan = styled.span`
-  margin-left: 40px;
+  /* margin-left: 40px; */
   padding-bottom: 5px;
   border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
+  line-height: 1.7em;
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 `;
 
@@ -150,12 +157,13 @@ export const Intro = styled(NameWrap)`
   }
 `;
 
-export const IntroParagraph = styled.p`
+export const IntroParagraphWrap = styled.div`
   margin: 20px 0;
   font-size: 20px;
   line-height: 1.5em;
-  padding-left: 140px;
+  padding: 20px 0;
   font-family: ${({ theme: { paragraphFont } }) => paragraphFont};
+
   blockquote {
     font-size: 14px;
   }
@@ -164,9 +172,23 @@ export const IntroParagraph = styled.p`
   }
 `;
 
+export const IntroParagraph = styled.p`
+  width: 550px;
+  border-radius: 15px;
+  /* padding: 20px; */
+  /* border: 1px solid ${({ theme: { accentColor } }) => accentColor}; */
+  line-height: 1.7em;
+  font-size: 20px;
+  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+    width: 300px;
+    font-size: 15px;
+  }
+`;
+
 export const GitHubLinkWrap = styled.span`
   display: flex;
-  padding-left: 190px;
+  /* padding-left: 190px; */
+  padding-left: 100px;
   margin-top: 20px;
   align-items: center;
   a {
@@ -174,6 +196,7 @@ export const GitHubLinkWrap = styled.span`
     line-height: 1.4em;
     text-decoration-line: underline;
   }
+
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     flex-direction: column;
     padding: 0;
@@ -192,7 +215,7 @@ export const NameSpan = styled.span`
 export const Skill = styled(NameWrap)`
   padding: 50px 50px 0 50px;
   &::before {
-    content: "(02)-skill";
+    content: "(02)-skills";
   }
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     padding: 20px 20px 0 20px;

@@ -22,7 +22,8 @@ export type TabStateType = {
   type?: string;
 };
 
-export type modalType = "" | "TH-ROAD" | "orderffrice" | "K-MAS-2020";
+export type modalType = "" | "TH-ROAD" | "orderffrice" | "K-MAS-2020" | "Profile";
+
 type ValueType = {
   menuOpen: boolean;
   setMenuOpen: (T: boolean) => void;

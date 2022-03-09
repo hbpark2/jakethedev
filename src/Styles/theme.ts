@@ -24,7 +24,7 @@ const deviceMin = {
   wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
-// New MediaQuery 
+// New MediaQuery
 const customMediaQuery = (maxWidth: number): string =>
   `@media (max-width: ${maxWidth}px)`;
 
@@ -44,7 +44,7 @@ export const navyTheme: DefaultTheme = {
   accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
   defaultFont: '"Nanum Myeongjo", serif',
   paragraphFont: '"Nanum Gothic", serif',
-  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
   fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
   deviceScreenMax: deviceMax,
   deviceScreenMin: deviceMin,
@@ -58,7 +58,7 @@ export const skyblueTheme: DefaultTheme = {
   accentFont: '"Cormorant Garamond", "Nanum Myeongjo", serif',
   defaultFont: '"Nanum Myeongjo", serif',
   paragraphFont: '"Nanum Gothic", serif',
-  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
   fullHeight: window.innerWidth > 639 ? "100vh" : `${window.innerHeight}px`,
   deviceScreenMax: deviceMax,
   deviceScreenMin: deviceMin,
@@ -106,6 +106,7 @@ export const GlobalStyles = createGlobalStyle`
 	.overflow-hidden{
 		overflow:hidden;
 	}
+  
 	.overflow-unset{
 		overflow:unset;
 	}

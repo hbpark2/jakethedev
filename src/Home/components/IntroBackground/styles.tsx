@@ -288,7 +288,7 @@ export const IntroCenterText = styled.span<{ scrl: number }>`
   color: ${({ theme: { accentColor } }) => accentColor};
   text-align: center;
   transition: opacity 1s, transform 1s, color 0.5s;
-  text-shadow: ${({ theme: { textShadow } }) => textShadow};
+  text-shadow: ${({ theme: { boxShadow } }) => boxShadow};
   font-weight: 100;
   @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
     font-size: 80px;

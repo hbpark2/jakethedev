@@ -116,6 +116,7 @@ interface CareerItemProps {
   children: React.ReactNode;
   isModal?: boolean;
   skills?: string[];
+  url?: string;
 }
 
 const CareerItem: React.FC<CareerItemProps> = ({
@@ -126,6 +127,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
   children,
   isModal,
   skills,
+  url,
 }) => {
   const { setModalOpen, changeCursorState } = useContext(CurrentContext);
 
@@ -163,9 +165,10 @@ const CareerItem: React.FC<CareerItemProps> = ({
       ) : (
         <LinkButton
           // to={`/detail/${title}`}
-          href="https://rvnnyc.com/blogs/event/holidaypromotion-2112"
+
+          href={url && url}
           target="_blank"
-          title="go to rvn page"
+          title="go to detail page"
           rel="norefferer"
           onMouseOver={() => changeCursorState("bigger")}
           onMouseOut={() => changeCursorState("")}

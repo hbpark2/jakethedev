@@ -14,37 +14,21 @@ import {
   ProfileImageWrap,
   ProfileRow,
   UnderLineSpan,
+  SectionInner,
+  IntroParagraphWrap,
 } from "./styles";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import CareerItem from "./components/CareerItem";
 import { careerArr } from "./components/careerData";
 import { CurrentContext } from "../../../Context/ContextStore";
-import Modal from "../../../Components/Common/Modal";
-import CareerPopup from "./components/CareerPopup";
+import SkillSection from "./components/SkillSection";
 
 const Profile: React.FC<{
   loading: boolean;
   scrollY: number;
   changeCursorState: Function;
 }> = ({ loading, scrollY, changeCursorState }) => {
-  const { modalOpen } = useContext(CurrentContext);
-
-  useEffect(() => {
-    console.log(modalOpen);
-    const mainTarget = document.querySelector("main")! as HTMLElement;
-
-    if (modalOpen !== "") {
-      document.body?.classList.remove("overflow-unset");
-      document.body?.classList.add("overflow-hidden");
-      mainTarget?.setAttribute("aria-hidden", "true");
-    }
-
-    if (modalOpen === "") {
-      document.body?.classList.remove("overflow-hidden");
-      document.body?.classList.add("overflow-unset");
-      mainTarget?.setAttribute("aria-hidden", "false");
-    }
-  }, [modalOpen]);
+  const { modalOpen, setModalOpen } = useContext(CurrentContext);
 
   return (
     <>
@@ -52,25 +36,51 @@ const Profile: React.FC<{
         <Inner>
           <ProfileImageWrap />
           <NameWrap
+            // onClick={() => setModalOpen("Profile")}
             onMouseOver={() => changeCursorState("image")}
             onMouseOut={() => changeCursorState("")}
           >
-            <h3 className="blind">name : 박형빈 @jake @7ransis7or</h3>
-            <span>B. 1995</span>
-            <br />
-            <span className="name-span">
-              Hyeong Bin. Paak <span className="small-span">@Jake</span>
-            </span>
-            <br />
+            <SectionInner>
+              <h3 className="blind">name : 박형빈 @jake @7ransis7or</h3>
+              <span>B. 1995</span>
+              <br />
+              <span className="name-span">
+                Hyeong Bin. Paak <span className="small-span">@Jake</span>
+              </span>
+              <br />
+              <UnderLineSpan>
+                Front-end developer <br />
+                based in Seoul, Korea
+              </UnderLineSpan>
+            </SectionInner>
           </NameWrap>
-          <UnderLineSpan>Front-end developer.</UnderLineSpan>
 
           <Intro>
             <h3 className="blind">Intro</h3>
 
-            <IntroParagraph>
-              I'm Front-end developer based in Seoul, Korea
-            </IntroParagraph>
+            <IntroParagraphWrap>
+              <IntroParagraph>
+                반갑습니다!😀
+                <br />
+                저는 2년차 FE개발자 박형빈입니다.
+                <br />
+                공부하고 적용하고 응용하는 것을 좋아합니다.
+                <br />
+                <br />
+                웹표준과 접근성을 바탕으로 근거있는 마크업을 작성합니다.
+                <br />
+                재사용이 가능하고 유지보수에 적합한
+                <br />
+                객체 지향 프로그래밍에 관심이 많습니다.
+                <br />
+                <br />
+                코드를 읽는 사람 입장에서 생각하는 걸 좋아해서 계속 고민하며
+                <br />
+                더 나은 방향에 대해 사람들과 얘기 나누곤 합니다.
+                <br />
+                프로덕트가 사용자들의 기억에 남도록 하는 게 저의 일입니다.
+              </IntroParagraph>
+            </IntroParagraphWrap>
           </Intro>
 
           <GitHubLinkWrap>
@@ -88,8 +98,9 @@ const Profile: React.FC<{
 
           <Skill>
             <h3 className="blind">Skills</h3>
+            <SkillSection />
 
-            <SkillWrap>
+            {/* <SkillWrap>
               <ul>
                 <li>HTML5</li>
                 <li>CSS3</li>
@@ -107,7 +118,7 @@ const Profile: React.FC<{
                 <li>Azure</li>
                 <li>Netlify</li>
               </ul>
-            </SkillWrap>
+            </SkillWrap> */}
           </Skill>
 
           <Career>
@@ -122,6 +133,7 @@ const Profile: React.FC<{
                   date={item.date}
                   isModal={item.isModal}
                   skills={item.skills}
+                  url={item.url}
                 >
                   {item.children.split("<br />").map((line, index) => {
                     let makeSpanKey = `line${index}`;
@@ -138,11 +150,6 @@ const Profile: React.FC<{
           </Career>
         </Inner>
       </Container>
-      {modalOpen !== "" && (
-        <Modal>
-          <CareerPopup modalState={modalOpen} />
-        </Modal>
-      )}
     </>
   );
 };

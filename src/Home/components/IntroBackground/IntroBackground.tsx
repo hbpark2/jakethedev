@@ -19,11 +19,9 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
   return (
     <>
       <FirstSection scrl={scrollY}>
-        Hello
+        Welcome!
         <br />
-        This is Jake
-        <br />
-        if you wanna {window.innerWidth < 640 && <br />} keep seeing this page{" "}
+        This is Jake's portfolio
         <br />
         scroll down plz
       </FirstSection>

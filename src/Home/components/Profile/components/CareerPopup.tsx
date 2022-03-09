@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import THROADIMAGE from "../../../../Assets/th-road_screen.png";
+
+
 const Container = styled.div`
   padding: 30px 10px 20px;
-  background-color: #333;
+  background-color: #fff;
   min-height: 100%;
 `;
 
@@ -13,6 +15,7 @@ const ScreenImage = styled.img`
   width: 100%;
   border-radius: 15px;
 `;
+
 
 interface CareerPopupProps {
   modalState: string;

@@ -5,7 +5,6 @@ import Profile from "../../Assets/portrait-3.png";
 import JakeImg from "../../Assets/jake.png";
 import { CursorImage, JakeImage } from "../../Styles/animation";
 import { useLocation } from "react-router-dom";
-import { off } from "process";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -72,11 +71,26 @@ const CursorDot = styled.i`
 
 const Image = styled.img`
   width: 300px;
-  opacity: 0.7;
+  width: 250px;
+  width: 150px;
+  opacity: 0.5;
   animation: ${CursorImage} 1s;
   animation-fill-mode: both;
   border-bottom-left-radius: 150px;
   border-bottom-right-radius: 150px;
+`;
+
+const CursorTailInner = styled.div`
+  position: relative;
+  cursor: pointer;
+  span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+  }
 `;
 
 const Jake = styled.img`
@@ -145,7 +159,10 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
       >
         {(currentPosition === "biggerLink" && "go Detail") ||
           (currentPosition === "image" && (
-            <Image src={Profile} alt="profileimage" />
+            <CursorTailInner>
+              <Image src={Profile} alt="profileimage" />
+              {/* <span>Click</span> */}
+            </CursorTailInner>
           )) ||
           (currentPosition === "jake" && (
             <Jake src={JakeImg} alt="profileimage" />
