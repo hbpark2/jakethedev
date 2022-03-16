@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../../Styles/theme";
 import { NameWrap } from "../Profile/styles";
 
 export const Career = styled.div`
@@ -27,7 +28,7 @@ export const Career = styled.div`
     border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding: 20px 20px 0 20px;
     & > div {
       padding-left: 0px;

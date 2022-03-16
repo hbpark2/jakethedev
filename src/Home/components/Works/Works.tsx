@@ -10,33 +10,57 @@ const Works: React.FC<{
   loading: boolean;
   scrollY: number;
   changeCursorState: Function;
-}> = ({ loading, scrollY, changeCursorState }) => {
+  worksType?: string;
+}> = ({ loading, scrollY, changeCursorState, worksType }) => {
   return (
     <Container scrl={scrollY} aria-hidden={!loading}>
       <Inner>
         <Career>
           <h3 className="blind">Project</h3>
           <CareerInner>
-            {careerArr.map((item, index) => (
-              <CareerItem
-                key={`career ${index}`}
-                type={item.type}
-                title={item.title}
-                subTitle={item.subTitle}
-                date={item.date}
-                skills={item.skills}
-              >
-                {item.children.split("<br />").map((line, index) => {
-                  let makeSpanKey = `line${index}`;
-                  return (
-                    <React.Fragment key={makeSpanKey}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  );
-                })}
-              </CareerItem>
-            ))}
+            {careerArr.map((item, index) =>
+              worksType === "FRONT-END" ? (
+                <CareerItem
+                  key={`career ${index}`}
+                  type={item.type}
+                  title={item.title}
+                  subTitle={item.subTitle}
+                  date={item.date}
+                  skills={item.skills}
+                >
+                  {item.children.split("<br />").map((line, index) => {
+                    let makeSpanKey = `line${index}`;
+                    return (
+                      <React.Fragment key={makeSpanKey}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    );
+                  })}
+                </CareerItem>
+              ) : (
+                item.type !== "FRONT-END" && (
+                  <CareerItem
+                    key={`career ${index}`}
+                    type={item.type}
+                    title={item.title}
+                    subTitle={item.subTitle}
+                    date={item.date}
+                    skills={item.skills}
+                  >
+                    {item.children.split("<br />").map((line, index) => {
+                      let makeSpanKey = `line${index}`;
+                      return (
+                        <React.Fragment key={makeSpanKey}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      );
+                    })}
+                  </CareerItem>
+                )
+              )
+            )}
           </CareerInner>
         </Career>
       </Inner>

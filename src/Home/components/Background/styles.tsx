@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { Loop, Loop2, RightToLeft } from "../../../Styles/animation";
+import { media } from "../../../Styles/theme";
 
 export const Container = styled.div<{ blur: boolean }>`
   position: fixed;
@@ -12,7 +13,7 @@ export const Container = styled.div<{ blur: boolean }>`
   transition: filter 0.5s;
   ${({ blur }) => (blur ? "filter:blur(5px)" : "filter:none")};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.nomalPC} {
+  ${media.pcMax} {
     overflow-x: hidden;
     /* display: none; */
   }
@@ -24,7 +25,7 @@ export const Inner = styled.div`
   animation-name: ${RightToLeft};
   animation-duration: 2s;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 80vw;
     overflow: hidden;
     animation: none;
@@ -91,7 +92,7 @@ export const ImageBox = styled.li<{ invert: boolean; bgImage: string }>`
           filter: blur(2px);
         `};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 70vw;
     height: 550px;
   }

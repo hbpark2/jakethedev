@@ -5,6 +5,7 @@ import Profile from "../../Assets/portrait-3.png";
 import JakeImg from "../../Assets/jake.png";
 import { CursorImage, JakeImage } from "../../Styles/animation";
 import { useLocation } from "react-router-dom";
+import { media } from "../../Styles/theme";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -44,7 +45,7 @@ const CursorTail = styled.div<{
         transform: scale(2) translate(-30%, -30%);
       `)}
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     display: none;
   }
 `;
@@ -64,7 +65,7 @@ const CursorDot = styled.i`
   background-color: #fff;
   z-index: 999;
   mix-blend-mode: difference;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     display: none;
   }
 `;

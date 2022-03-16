@@ -1,8 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { TabLine } from "../../../Home/components/Tab/styles";
 import { TabArr } from "../../../Home/components/Tab/tabdata";
+import { useScroll } from "../../../Hooks/Scroll";
 import Noise from "../../Common/Noise";
 import {
   Container,
@@ -20,14 +21,25 @@ const Header = () => {
   const { menuOpen, setMenuOpen, changeCursorState, onTabClick, tabState } =
     useContext(CurrentContext);
 
+  const [menuHide, setMenuHide] = useState(false);
+
   const location = useLocation();
   const onOpenMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  // console.log(location.pathname);
+
+  useEffect(() => {
+    document.addEventListener("wheel", (e: WheelEvent) => {
+      if (e.deltaY > 0) {
+        setMenuHide(true);
+      } else {
+        setMenuHide(false);
+      }
+    });
+  });
 
   return (
-    <Container>
+    <Container menuHide={menuHide}>
       <Logo>JakeTheDev</Logo>
       <MenuBtn
         onClick={onOpenMenu}

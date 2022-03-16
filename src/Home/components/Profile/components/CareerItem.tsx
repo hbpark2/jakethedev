@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { CurrentContext, modalType } from "../../../../Context/ContextStore";
+import { media } from "../../../../Styles/theme";
 
 const Container = styled.div`
   margin: 40px 0;
@@ -92,7 +93,9 @@ const ModalButton = styled.button`
 `;
 
 const SkillTitle = styled.span`
+  display: block;
   font-weight: 600;
+  margin-bottom: 5px;
 `;
 
 const SkillWrap = styled.ul`
@@ -101,7 +104,7 @@ const SkillWrap = styled.ul`
     line-height: 1.6em;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     li {
       font-size: 14px;
     }
@@ -117,6 +120,7 @@ interface CareerItemProps {
   isModal?: boolean;
   skills?: string[];
   url?: string;
+  worksType?: string;
 }
 
 const CareerItem: React.FC<CareerItemProps> = ({

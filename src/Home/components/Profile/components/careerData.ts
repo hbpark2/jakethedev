@@ -3,10 +3,11 @@ export const careerArr = [
     type: "FRONT-END",
     title: "RVN",
     subTitle: "RVN event 이벤트 페이지",
-    date: "2021.12.20 ~ 2021.12.22",
-    children: "RVN - 이벤트 페이지 (반응형)",
+    date: "2021.12.20 ~ 2021.12.23",
+    children:
+      "shopify로 호스팅 중인 쇼핑몰의 이벤트 페이지 퍼블리싱을 전담했습니다.",
     isModal: false,
-    skills: ["HTML5", "SCSS"],
+    skills: ["HTML5", "SCSS", "shopify"],
     url: "https://rvnnyc.com/blogs/event/holidaypromotion-2112",
   },
   {
@@ -14,9 +15,10 @@ export const careerArr = [
     title: "TH-ROAD",
     subTitle: "디자이너 포트폴리오 ( 개인외주 )",
     date: "2021.12.01 ~ 2021.12.31",
-    children: "TH-ROAD - 디자이너의 포트폴리오입니다.",
+    children:
+      "반응형 디자이너 포트폴리오입니다. <br />웹접근성(WAI-ARIA)을 갖춘 HTML 구조와 반응형 CSS, 사용자 인터렉션 위주의 자바스크립트를 담당했습니다.",
     isModal: true,
-    skills: ["React", "Typescript"],
+    skills: ["React", "Typescript", "Netlify"],
     url: "",
   },
   {
@@ -36,7 +38,7 @@ export const careerArr = [
     subTitle: "화목 ( 개인 프로젝트 )",
     date: "2021.08.01 ~ ",
     children:
-      "화목 HWAMOEK <br /> Front-end, Back-end 웹, 앱 개발을 전담했습니다.",
+      "개인 프로젝트로 식물도감, SNS등의 기능을 구현한  Frontend, Backend, 앱 개발을 전담했습니다.",
     isModal: false,
     skills: ["React", "React-Native", "Prisma", "GraphQL"],
     url: "https://www.hwamoek.io/",
@@ -80,7 +82,7 @@ export const careerArr = [
     subTitle: "디자이너 포트폴리오 ( 개인외주 )",
     date: "2020.06.01 ~ 2020.07.01",
     children:
-      "Mutaccato 반응형 디자이너 포트폴리오입니다. <br /> 웹접근성을 갖춘 HTML 구조와 반응형 CSS, 사용자 인터렉션 위주의 자바스크립트를 담당했습니다. ",
+      "반응형 디자이너 포트폴리오입니다. <br /> 웹접근성(WAI-ARIA)을 갖춘 HTML 구조와 반응형 CSS, <br /> 사용자 인터렉션 위주의 Javascript를 담당했습니다.",
     isModal: false,
     skills: ["HTML5", "CSS3", "Javascript"],
     url: "http://mutaccato.com/",

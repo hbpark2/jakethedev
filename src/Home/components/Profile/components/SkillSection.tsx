@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { media } from "../../../../Styles/theme";
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+  ${media.laptopMax} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Wrap = styled.div`
@@ -17,6 +21,9 @@ const Wrap = styled.div`
   border: 1px solid rgba(228, 203, 172, 0.3);
   border-radius: 25px;
   margin: 20px 0 40px;
+  ${media.laptopMax} {
+    margin: 20px 0;
+  }
 `;
 
 const Title = styled.span`
@@ -96,7 +103,7 @@ const SkillSection = () => {
                   Javascript<span> (es5, es6, jQuery)</span>
                 </dt>
                 <dd>
-                  인터랙티브한 동적 UI 구현을 좋아하고,
+                  인터랙티브한 동적 UI 구현이 가능하고,
                   <br />
                   내장함수들을 통해 다양한 기능구현이 가능합니다.
                 </dd>

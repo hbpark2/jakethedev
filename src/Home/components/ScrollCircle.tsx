@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { media } from "../../Styles/theme";
 
 const RadiusAni = keyframes`
   from{
@@ -21,7 +22,7 @@ const Container = styled.i`
   letter-spacing: 1em;
   transform-origin: 50% 50%;
   animation: ${RadiusAni} 10s infinite linear;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     letter-spacing: 0.8em;
     left: 10px;
     bottom: 10px;
@@ -38,7 +39,7 @@ const SvgContainer = styled.svg`
     font-size: 24px;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.pcMax} {
     width: 150px;
     height: 150px;
     path {
@@ -57,7 +58,7 @@ const ScrollCircle = () => {
         <path
           id="myTextPath"
           d={
-            window.innerWidth > 1023
+            window.innerWidth > 1440
               ? "M 84,0 A 84,84 0 0 1 -84,0 A 84,84 0 0 1 84,0"
               : "M 64,0 A 64,64 0 0 1 -64,0 A 64,64 0 0 1 64,0"
           }

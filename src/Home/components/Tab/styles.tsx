@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
+import { media } from "../../../Styles/theme";
 
 export const TabContainer = styled.ul<{ scrl: number }>`
   position: absolute;
@@ -26,10 +27,10 @@ export const TabContainer = styled.ul<{ scrl: number }>`
           position: absolute;
         `};
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     display: none;
   }
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     left: calc(50% + 900px);
   }
 `;
@@ -47,7 +48,7 @@ export const TabList = styled.li`
     }
   }
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     margin: 40px 0;
     font-size: 36px;
   }
@@ -61,19 +62,15 @@ export const TabSpan = styled.span`
   color: ${({ theme: { accentColor } }) => accentColor};
   font-weight: 400;
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     margin-left: 30px;
   }
 `;
 
 export const TabSpanTop = styled.span`
   display: block;
-<<<<<<< HEAD
   font-size: 16px;
   margin-bottom: 2px;
-=======
-  /* font-size: 13px; */
->>>>>>> feature/v2
 `;
 
 export const TabLine = styled.i<{ current: boolean }>`
@@ -111,7 +108,7 @@ export const TabButton = styled.button<{ current?: boolean }>`
           color: ${accentColor};
         `};
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     width: 120px;
     height: 120px;
     font-size: 52px;

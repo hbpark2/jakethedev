@@ -56,7 +56,7 @@ const Home = () => {
 
   return (
     <>
-      <ScrollCircle />
+      {/* <ScrollCircle /> */}
       {!loading && <Cursor currentPosition={currentPosition} />}
       <Background />
       <Container aria-hidden={!menuOpen}>
@@ -78,6 +78,7 @@ const Home = () => {
                 loading={loading}
                 scrollY={scrollY}
                 changeCursorState={changeCursorState}
+                worksType="FRONT-END"
               />
             )}
 
@@ -86,6 +87,7 @@ const Home = () => {
                 loading={loading}
                 scrollY={scrollY}
                 changeCursorState={changeCursorState}
+                worksType="BACK-END"
               />
             )}
           </>

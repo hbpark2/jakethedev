@@ -3,10 +3,10 @@ import reset from "styled-reset";
 
 // Media query
 const deviceSizes = {
-  mobile: 639,
-  tablet: 767,
-  laptop: 1023,
-  nomalPC: 1500,
+  mobile: 576,
+  tablet: 768,
+  laptop: 1024,
+  nomalPC: 1440,
   wide: 1920,
 };
 
@@ -24,15 +24,25 @@ const deviceMin = {
   wide: `screen and (min-width: ${deviceSizes.wide + 1}px)`,
 };
 
-// New MediaQuery
-const customMediaQuery = (maxWidth: number): string =>
-  `@media (max-width: ${maxWidth}px)`;
+// make new MediaQuery Fn
+const customMediaQuery = (screenWidth: number, type: "min" | "max"): string => {
+  return `@media (${
+    type === "max" ? "max-width" : "min-width"
+  }: ${screenWidth}px)`;
+};
 
 export const media = {
   custom: customMediaQuery,
-  pc: customMediaQuery(1440),
-  tablet: customMediaQuery(768),
-  mobile: customMediaQuery(576),
+  wideMax: customMediaQuery(1920, "max"),
+  pcMax: customMediaQuery(1440, "max"),
+  laptopMax: customMediaQuery(1024, "max"),
+  tabletMax: customMediaQuery(768, "max"),
+  mobileMax: customMediaQuery(576, "max"),
+  wideMin: customMediaQuery(1921, "min"),
+  pcMin: customMediaQuery(1441, "min"),
+  laptopMin: customMediaQuery(1025, "min"),
+  tabletMin: customMediaQuery(769, "min"),
+  mobileMin: customMediaQuery(577, "min"),
 };
 //
 
@@ -66,7 +76,6 @@ export const skyblueTheme: DefaultTheme = {
 
 //global
 export const GlobalStyles = createGlobalStyle`
-  //
   ${reset}
 
 	body, html{
@@ -124,4 +133,22 @@ export const GlobalStyles = createGlobalStyle`
     clip-path: inset(50%);
 	}
 
+  .pc-tablet-only {
+        display: block !important;
+        ${media.mobileMax} {
+            display: none !important;
+        }
+    }
+    .tablet-mobile-only{
+        display: none !important;
+        ${media.tabletMax}{
+            display:block !important;
+        }
+    }
+    .mobile-only {
+        display: none !important;
+        ${media.mobileMax} {
+            display: block !important;
+        }
+    }
 `;

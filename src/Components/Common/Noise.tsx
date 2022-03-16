@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import NoiseImg from "../../Assets/noise.png";
 import { NoiseAni } from "../../Styles/animation";
+import { media } from "../../Styles/theme";
 
 const Container = styled.div`
   /*noise*/
@@ -18,7 +19,7 @@ const Container = styled.div`
   pointer-events: none;
   z-index: 105;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     /* display: none; */
   } ;
 `;

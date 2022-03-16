@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
+import { media } from "../../../Styles/theme";
 
-export const Container = styled.header`
+export const Container = styled.header<{ menuHide: boolean }>`
   position: fixed;
-  top: 0;
+  /* top: 0; */
   left: 0;
   display: flex;
   justify-content: space-between;
@@ -11,8 +12,10 @@ export const Container = styled.header`
   /* padding: 50px; */
   margin: 50px;
   z-index: 200;
+  top: ${(props) => (props.menuHide ? "-120px" : "0px")};
+  transition: top 0.5s;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: calc(100% - 50px);
     padding: 30px;
     padding: 0;
@@ -25,25 +28,25 @@ export const Logo = styled.h1`
   z-index: 205;
   font-family: ${({ theme: { accentFont } }) => accentFont};
   color: ${({ theme: { accentColor } }) => accentColor};
-  font-size: 54px;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
-    font-size: 32px;
+  font-size: 48px;
+  ${media.laptopMax} {
+    font-size: 26px;
   } ;
 `;
 
 export const MenuBtn = styled.button<{ disable?: boolean }>`
   display: ${({ disable }) => (disable ? "none" : "block")};
-  position: fixed;
+  /* position: fixed;
   top: 55px;
-  right: 55px;
+  right: 55px; */
   z-index: 205;
   color: ${({ theme: { accentColor } }) => accentColor};
   font-family: ${({ theme: { accentFont } }) => accentFont};
   font-size: 24px;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
-    top: 35px;
-    right: 35px;
+  ${media.laptopMax} {
+    top: 30px;
+    right: 25px;
   }
 `;
 
@@ -80,7 +83,7 @@ export const NavUl = styled.ul`
   width: 80%;
   transform: translateX(-10%);
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     transform: translateX(-30%);
     display: flex;
     flex-direction: column;
@@ -108,7 +111,7 @@ export const NavList = styled.li<{ index: number; menuOpen: boolean }>`
           transform: translateX(${index}px);
         `}
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     transform: ${({ index }) => `translateX(${index * 40}px)`};
     margin: 20px 0;
   }
@@ -146,13 +149,13 @@ export const LinkButton = styled.button<{ current: boolean }>`
     color: ${({ theme: { bgColor2 } }) => bgColor2};
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 50px;
     height: 50px;
     font-size: 24px;
   }
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     width: 120px;
     height: 120px;
     font-size: 52px;
@@ -167,14 +170,15 @@ export const LinkSpan = styled.span`
   color: ${({ theme: { accentColor } }) => accentColor};
   font-weight: 700;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     font-size: 24px;
   }
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.wide} {
+  ${media.wideMin} {
     margin-left: 30px;
   }
 `;
+
 export const LinkLine = styled.i<{ current: boolean }>`
   display: block;
   width: ${({ current }) => (current ? "100%" : "0")};

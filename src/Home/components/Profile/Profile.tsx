@@ -49,11 +49,23 @@ const Profile: React.FC<{
               </span>
               <br />
               <UnderLineSpan>
-                Front-end developer <br />
+                <span>Front-end developer</span> <br />
                 based in Seoul, Korea
               </UnderLineSpan>
             </SectionInner>
           </NameWrap>
+          <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
+            <FontAwesomeIcon icon={faGithub} size="lg" />
+            <a
+              href="https://github.com/hbpark2/"
+              target="_blank"
+              rel="noreferrer"
+              onMouseOver={() => changeCursorState("jake")}
+              onMouseOut={() => changeCursorState("")}
+            >
+              Go to Jake's GitHub
+            </a>
+          </GitHubLinkWrap>
 
           <Intro>
             <h3 className="blind">Intro</h3>
@@ -74,16 +86,20 @@ const Profile: React.FC<{
                 객체 지향 프로그래밍에 관심이 많습니다.
                 <br />
                 <br />
-                코드를 읽는 사람 입장에서 생각하는 걸 좋아해서 계속 고민하며
+                {/* 코드를 읽는 사람 입장에서 생각하는 걸 좋아해서 계속 고민하며 */}
+                애자일을 적용하는 것에 흥미를 느끼고, 좋아해서
                 <br />
                 더 나은 방향에 대해 사람들과 얘기 나누곤 합니다.
                 <br />
-                프로덕트가 사용자들의 기억에 남도록 하는 게 저의 일입니다.
+                {/* 프로덕트가 사용자들의 기억에 남도록 하는 게 저의 일입니다. */}
+                사용자들 팀원들에게 또 어제의 저에게
+                <br />
+                보기 좋고, 쉬운 코드를 남기는 것이 저의 사명입니다.
               </IntroParagraph>
             </IntroParagraphWrap>
           </Intro>
 
-          <GitHubLinkWrap>
+          <GitHubLinkWrap className="mobile-only" isPc={false}>
             <FontAwesomeIcon icon={faGithub} size="lg" />
             <a
               href="https://github.com/hbpark2/"

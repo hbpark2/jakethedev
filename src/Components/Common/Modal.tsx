@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { CurrentContext } from "../../Context/ContextStore";
 import { FadeIn } from "../../Styles/animation";
+import { media } from "../../Styles/theme";
 import Noise from "./Noise";
 
 const Container = styled.div`
@@ -33,7 +34,7 @@ const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.1);
   } */
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 300px;
   }
 `;

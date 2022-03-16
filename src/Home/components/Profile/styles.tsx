@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { FadeIn } from "../../../Styles/animation";
 import ProfileImage from "../../../Assets/portrait-3.png";
+import { media } from "../../../Styles/theme";
 
 export const Container = styled.article<{ scrl: number }>`
   position: relative;
@@ -21,7 +22,7 @@ export const Container = styled.article<{ scrl: number }>`
     rgba(77, 94, 101, 0) 100%
   );
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding-left: 0;
     /* padding-right: 0; */
     /* padding: 0 10px; */
@@ -37,7 +38,7 @@ export const Container = styled.article<{ scrl: number }>`
           `}
   }
 
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+  ${media.mobileMin} {
     ${({ scrl }) =>
       scrl > 800
         ? css`
@@ -50,7 +51,7 @@ export const Container = styled.article<{ scrl: number }>`
   }
 
   // 4K WIDEPC
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+  ${media.mobileMin} {
     ${({ scrl }) =>
       scrl > 800
         ? css`
@@ -70,7 +71,7 @@ export const Inner = styled.div`
   margin: 0 auto;
   font-size: 22px;
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 100%;
     margin: 0 auto;
   }
@@ -114,7 +115,7 @@ export const NameWrap = styled.div`
     line-height: 1em;
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     /* width: 40%; */
     padding: 10px;
     & > div {
@@ -137,12 +138,11 @@ export const NameWrap = styled.div`
 export const SectionInner = styled.div``;
 
 export const UnderLineSpan = styled.span`
-  /* margin-left: 40px; */
-  padding-bottom: 5px;
-  border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
-  line-height: 1.7em;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
-    /* margin-left: 20px; */
+  span {
+    padding-bottom: 5px;
+    border-bottom: 1px solid ${({ theme: { accentColor } }) => accentColor};
+    line-height: 2.5em;
+    margin-bottom: 5px;
   }
 `;
 
@@ -152,7 +152,7 @@ export const Intro = styled(NameWrap)`
   &::before {
     content: "(01)-intro";
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding: 20px 20px 0 20px;
   }
 `;
@@ -167,7 +167,7 @@ export const IntroParagraphWrap = styled.div`
   blockquote {
     font-size: 14px;
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding-left: 0;
   }
 `;
@@ -179,25 +179,26 @@ export const IntroParagraph = styled.p`
   /* border: 1px solid ${({ theme: { accentColor } }) => accentColor}; */
   line-height: 1.7em;
   font-size: 20px;
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     width: 300px;
     font-size: 15px;
   }
 `;
 
-export const GitHubLinkWrap = styled.span`
-  display: flex;
-  /* padding-left: 190px; */
-  padding-left: 100px;
+export const GitHubLinkWrap = styled.span<{ isPc?: boolean }>`
+  display: flex !important;
+  /* padding-left: 100px; */
+  padding-left: ${({ isPc }) => (isPc ? "100px" : "100px")};
   margin-top: 20px;
   align-items: center;
+
   a {
     margin-left: 10px;
     line-height: 1.4em;
-    text-decoration-line: underline;
+    /* text-decoration-line: underline; */
   }
 
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     flex-direction: column;
     padding: 0;
     margin: 40px 0;
@@ -217,7 +218,7 @@ export const Skill = styled(NameWrap)`
   &::before {
     content: "(02)-skills";
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding: 20px 20px 0 20px;
   }
 `;
@@ -239,7 +240,7 @@ export const Career = styled(NameWrap)`
     content: "(03)-career";
     color: rgba(255, 255, 255, 0.7);
   }
-  @media ${({ theme: { deviceScreenMax } }) => deviceScreenMax.laptop} {
+  ${media.laptopMax} {
     padding: 20px 20px 0 20px;
   }
 `;
@@ -266,7 +267,7 @@ export const ProfileImageWrap = styled.div`
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid ${({ theme: { accentColor } }) => accentColor};
-  @media ${({ theme: { deviceScreenMin } }) => deviceScreenMin.mobile} {
+  ${media.mobileMin} {
     display: none;
   }
 `;
