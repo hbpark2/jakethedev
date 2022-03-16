@@ -71,30 +71,47 @@ const Profile: React.FC<{
             <h3 className="blind">Intro</h3>
 
             <IntroParagraphWrap>
+              {/* 웹의 기초는 구조라고 생각합니다. 
+                  그렇기 떄문에 근거있는 HTML구조를 먼저 
+                  구성하고 작업하는 것을 좋아합니다. */}
+
               <IntroParagraph>
                 반갑습니다!😀
                 <br />
                 저는 2년차 FE개발자 박형빈입니다.
                 <br />
-                공부하고 적용하고 응용하는 것을 좋아합니다.
+                평소 관심이 있는 분야를 직접 구현해 배포해보며
+                <br />
+                공부하고 습득하는 것을 사람들에게 소개하는 것을 좋아합니다.
                 <br />
                 <br />
-                웹표준과 접근성을 바탕으로 근거있는 마크업을 작성합니다.
+                우리가 살아가는 건물의 기초가 구조인 것처럼
+                <br />
+                우리가 활동하는 웹의 기초 또한 HTML구조라고 생각합니다.
+                <br />
+                그렇기 때문에 웹표준과 접근성을 바탕으로
+                <br />
+                근거있는 마크업을 작성하는 것을 우선하고
+                <br />
+                필요한 기능을 구현하는 작업 방식을 선호합니다.
+                <br />
+                <br />
+                또 애자일을 적용하는 것에 흥미를 느끼고, 좋아해서
                 <br />
                 재사용이 가능하고 유지보수에 적합한
                 <br />
                 객체 지향 프로그래밍에 관심이 많습니다.
                 <br />
+                그리고 이에 대해 더 나은 방향에 대해 <br />
+                사람들과 얘기 나누곤 합니다.
                 <br />
-                {/* 코드를 읽는 사람 입장에서 생각하는 걸 좋아해서 계속 고민하며 */}
-                애자일을 적용하는 것에 흥미를 느끼고, 좋아해서
                 <br />
-                더 나은 방향에 대해 사람들과 얘기 나누곤 합니다.
-                <br />
-                {/* 프로덕트가 사용자들의 기억에 남도록 하는 게 저의 일입니다. */}
                 사용자들 팀원들에게 또 어제의 저에게
                 <br />
-                보기 좋고, 쉬운 코드를 남기는 것이 저의 사명입니다.
+                보기 좋고, 쉬운 코드를 남기는 것이
+                <br />
+                저의 방향성이자 목표입니다.
+                <br />
               </IntroParagraph>
             </IntroParagraphWrap>
           </Intro>
@@ -115,26 +132,6 @@ const Profile: React.FC<{
           <Skill>
             <h3 className="blind">Skills</h3>
             <SkillSection />
-
-            {/* <SkillWrap>
-              <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Javascript</li>
-                <li>Typescript</li>
-                <li>React</li>
-                <li>React Native</li>
-                <li>Node</li>
-                <li>Git & Github</li>
-                <li>GraphQL</li>
-                <li>Apollo</li>
-                <li>Prisma</li>
-                <li>AWS S3</li>
-                <li>Heroku</li>
-                <li>Azure</li>
-                <li>Netlify</li>
-              </ul>
-            </SkillWrap> */}
           </Skill>
 
           <Career>
@@ -149,6 +146,7 @@ const Profile: React.FC<{
                   date={item.date}
                   isModal={item.isModal}
                   skills={item.skills}
+                  images={item.images}
                   url={item.url}
                 >
                   {item.children.split("<br />").map((line, index) => {

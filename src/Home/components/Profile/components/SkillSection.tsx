@@ -149,6 +149,7 @@ const SkillSection = () => {
           <li>node.js</li>
           <li>nest.js</li>
           <li>Prisma</li>
+          <li>graphQL</li>
           <li>PostgreSQL</li>
         </ItemListWrap>
       </Wrap>

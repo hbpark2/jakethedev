@@ -28,8 +28,8 @@ const CursorTail = styled.div<{
   transform: translate(-50%, -50%);
   transform-origin: 50% 50%;
   transition: transform 0.5s ease-in-out;
-
   z-index: 999;
+
   ${({ currentPosition }) =>
     (currentPosition === "bigger" &&
       css`
@@ -43,6 +43,11 @@ const CursorTail = styled.div<{
       css`
         border: none;
         transform: scale(2) translate(-30%, -30%);
+      `) ||
+    (currentPosition === "viewDetail" &&
+      css`
+        mix-blend-mode: difference;
+        transform: scale(1.8) translate(-30%, -30%);
       `)}
 
   ${media.laptopMax} {
@@ -167,7 +172,8 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
           )) ||
           (currentPosition === "jake" && (
             <Jake src={JakeImg} alt="profileimage" />
-          ))}
+          )) ||
+          (currentPosition === "viewDetail" && "View Detail")}
       </CursorTail>
       <CursorDot
         style={{

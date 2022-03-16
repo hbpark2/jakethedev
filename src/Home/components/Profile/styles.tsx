@@ -15,7 +15,8 @@ export const Container = styled.article<{ scrl: number }>`
   padding: 100px 20px;
   /* padding-left: 160px; */
   font-family: ${({ theme: { defaultFont } }) => defaultFont};
-  background: rgb(0, 0, 0);
+
+  background: rgba(0, 0, 0, 1);
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 1) 95%,

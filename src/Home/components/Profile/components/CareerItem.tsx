@@ -45,7 +45,7 @@ const CareerTypeWrap = styled.ul`
 `;
 
 const CareerParagraph = styled.p`
-  padding: 15px 0;
+  padding: 7px 0 0;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
 `;
@@ -74,6 +74,11 @@ const LinkButton = styled.a`
     color: #fff;
   }
 `;
+
+const LinkWrap = styled.a`
+  display: block;
+`;
+
 const ModalButton = styled.button`
   display: block;
   width: 70%;
@@ -92,22 +97,40 @@ const ModalButton = styled.button`
   }
 `;
 
-const SkillTitle = styled.span`
-  display: block;
-  font-weight: 600;
-  margin-bottom: 5px;
-`;
-
-const SkillWrap = styled.ul`
-  li {
+const SkillWrap = styled.dl`
+  display: flex;
+  align-items: center;
+  dd {
+    display: inline;
     font-size: 18px;
     line-height: 1.6em;
+    margin-right: 5px;
+    &:not(:last-child) {
+      &::after {
+        content: ", ";
+      }
+    }
   }
 
   ${media.laptopMax} {
-    li {
+    dd {
       font-size: 14px;
     }
+  }
+`;
+
+const SkillTitle = styled.dt`
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-right: 10px;
+`;
+
+const ImageWrap = styled.div`
+  padding: 10px 0 20px;
+  img {
+    display: block;
+    width: 70%;
   }
 `;
 
@@ -119,6 +142,7 @@ interface CareerItemProps {
   children: React.ReactNode;
   isModal?: boolean;
   skills?: string[];
+  images?: string[];
   url?: string;
   worksType?: string;
 }
@@ -131,6 +155,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
   children,
   isModal,
   skills,
+  images,
   url,
 }) => {
   const { setModalOpen, changeCursorState } = useContext(CurrentContext);
@@ -149,16 +174,45 @@ const CareerItem: React.FC<CareerItemProps> = ({
         <span className="career-subtitle">{subTitle}</span>
         <span className="date">{date}</span>
       </h4>
+
       <CareerParagraph>{children}</CareerParagraph>
-      <SkillTitle>Using: </SkillTitle>
       {skills && skills.length > 0 && (
         <SkillWrap>
+          <SkillTitle>Using: </SkillTitle>
           {skills.map((item, index) => (
-            <li key={`skill${index}`}>-{item}</li>
+            <dd key={`skill${index}`}>{item}</dd>
           ))}
         </SkillWrap>
       )}
+
       {isModal ? (
+        <ImageWrap
+          onMouseOver={() => changeCursorState("viewDetail")}
+          onMouseOut={() => changeCursorState("")}
+          onClick={() => setModalOpen(title)}
+        >
+          {images && images.length > 0 && (
+            <img src={images[0]} alt="미리보기 이미지" />
+          )}
+        </ImageWrap>
+      ) : (
+        <LinkWrap
+          href={url && url}
+          target="_blank"
+          title="go to detail page"
+          rel="norefferer noreferrer"
+          onMouseOver={() => changeCursorState("viewDetail")}
+          onMouseOut={() => changeCursorState("")}
+        >
+          <ImageWrap>
+            {images && images.length > 0 && (
+              <img src={images[0]} alt="미리보기 이미지" />
+            )}
+          </ImageWrap>
+        </LinkWrap>
+      )}
+
+      {/* {isModal ? (
         <ModalButton
           onMouseOver={() => changeCursorState("bigger")}
           onMouseOut={() => changeCursorState("")}
@@ -168,8 +222,6 @@ const CareerItem: React.FC<CareerItemProps> = ({
         </ModalButton>
       ) : (
         <LinkButton
-          // to={`/detail/${title}`}
-
           href={url && url}
           target="_blank"
           title="go to detail page"
@@ -179,7 +231,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
         >
           Go to {title}
         </LinkButton>
-      )}
+      )} */}
       <Line />
     </Container>
   );

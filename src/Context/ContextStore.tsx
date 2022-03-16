@@ -12,6 +12,7 @@ type CursorState =
   | "biggerLink"
   | "image"
   | "jake"
+  | "viewDetail"
   | "";
 
 export type TabStateType = {
@@ -22,7 +23,12 @@ export type TabStateType = {
   type?: string;
 };
 
-export type modalType = "" | "TH-ROAD" | "orderffrice" | "K-MAS-2020" | "Profile";
+export type modalType =
+  | ""
+  | "TH-ROAD"
+  | "orderffrice"
+  | "K-MAS-2020"
+  | "Profile";
 
 type ValueType = {
   menuOpen: boolean;
@@ -85,6 +91,9 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
           break;
         case "jake":
           setCurrentPosition("jake");
+          break;
+        case "viewDetail":
+          setCurrentPosition("viewDetail");
           break;
         case "link":
           setCurrentPosition("bigger");
