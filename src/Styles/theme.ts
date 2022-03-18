@@ -78,6 +78,14 @@ export const skyblueTheme: DefaultTheme = {
 export const GlobalStyles = createGlobalStyle`
   ${reset}
 
+/* setting */
+/* html{
+  font-size: 1px !important;
+}
+body{
+  font-size: 1rem !important;
+} */
+
 	body, html{
 		height:100%;
 	}
