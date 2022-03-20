@@ -1,5 +1,8 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { media } from "../../../../Styles/theme";
+import { GitHubLinkWrap } from "../styles";
 
 const Container = styled.div`
   display: grid;
@@ -68,6 +71,10 @@ const Description = styled.dl`
   }
 `;
 
+const GitHubLinkWrapInSkill = styled(GitHubLinkWrap)`
+  padding-left: 0;
+`;
+
 const SkillSection = () => {
   return (
     <Container>
@@ -79,7 +86,8 @@ const SkillSection = () => {
               <dt>HTML5</dt>
               <dd>
                 WAI-ARIA, Semantic을 사용해 <br />
-                SEO에 최적화된 마크업을합니다.
+                SEO에 최적화된 마크업을 합니다.
+                {/** 크로스 브라우징 웹접근성 */}
               </dd>
             </Description>
           </li>
@@ -91,7 +99,8 @@ const SkillSection = () => {
                 </dt>
                 <dd>
                   CSS 작동원리를 이해하며 <br /> 자유롭게 레이아웃 구현할 수
-                  있습니다.
+                  있습니다. <br />
+                  미디어쿼리를 사용해 반응형 대응에 능합니다.
                 </dd>
               </dl>
             </Description>
@@ -106,6 +115,8 @@ const SkillSection = () => {
                   인터랙티브한 동적 UI 구현이 가능하고,
                   <br />
                   내장함수들을 통해 다양한 기능구현이 가능합니다.
+                  {/** 로그인, 게시판 등 구체적으로  */}
+                  {/** 고도하 ( 속도 ) 뭘 적용해서 얼만큼 줄였다. . . */}
                 </dd>
               </dl>
             </Description>
@@ -120,18 +131,22 @@ const SkillSection = () => {
             <Description>
               <dt>React</dt>
               <dd>
-                효율적인 State관리와,
+                - 효율적인 State관리와,
                 <br />
-                useEffect, useMemo 등을 이용해
+                &nbsp; useEffect, useMemo 등을 이용해
                 <br />
-                라이프사이클을 관리할 수 있습니다.
+                &nbsp; 라이프사이클을 관리할 수 있습니다.
+                <br />- useform을 이용한 form 구현이 가능합니다.
               </dd>
             </Description>
           </li>
           <li>
             <Description>
               <dt>Next</dt>
-              <dd></dd>
+              <dd>
+                CSR의 약점인 SEO를 보완하기 위해 gatsby, remix 등의 <br />
+                framework, lib를 알아보다 현재는 NEXT를 공부중입니다.
+              </dd>
             </Description>
           </li>
         </ItemListWrap>
@@ -156,7 +171,23 @@ const SkillSection = () => {
       <Wrap>
         <Title>Version Control</Title>
         <ItemListWrap>
-          <li>Git</li>
+          <li>
+            <Description>
+              <dt>Git</dt>
+              <dd>
+                <GitHubLinkWrapInSkill className="pc-tablet-only" isPc={true}>
+                  <FontAwesomeIcon icon={faGithub} size="lg" />
+                  <a
+                    href="https://github.com/hbpark2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Go to Jake's GitHub
+                  </a>
+                </GitHubLinkWrapInSkill>
+              </dd>
+            </Description>
+          </li>
           <li>github</li>
         </ItemListWrap>
       </Wrap>

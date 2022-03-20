@@ -3,6 +3,7 @@ import KMAS2021IMAGE from "../../../../Assets/screen-kmas-2021.png";
 import HWAMOEKIMAGE from "../../../../Assets/screen-hwamoek.png";
 import KSALE2021IMAGE from "../../../../Assets/screen-ksale-2021.png";
 import MUTACCATOIMAGE from "../../../../Assets/screen-mutaccato.png";
+import THROADIMAGE from "../../../../Assets/screen-throad.png";
 
 export const careerArr = [
   {
@@ -26,7 +27,7 @@ export const careerArr = [
       "반응형 디자이너 포트폴리오입니다. <br />웹접근성(WAI-ARIA)을 갖춘 HTML 구조와 반응형 CSS, <br /> 사용자 인터렉션 위주의 Javascript를 담당했습니다.",
     isModal: true,
     skills: ["React", "Typescript", "Netlify"],
-    images: [],
+    images: [THROADIMAGE],
     url: "",
   },
   {

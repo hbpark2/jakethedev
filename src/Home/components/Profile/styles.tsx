@@ -105,7 +105,7 @@ export const NameWrap = styled.div`
   }
 
   &::before {
-    content: "(00)-name";
+    content: "(00)-profile";
     display: block;
     /* font-family: ${({ theme: { accentFont } }) => accentFont}; */
     font-family: ${({ theme: { paragraphFont } }) => paragraphFont};
@@ -162,7 +162,7 @@ export const IntroParagraphWrap = styled.div`
   margin: 20px 0;
   font-size: 20px;
   line-height: 1.5em;
-  padding: 20px 0;
+  padding: 20px 0 0;
   font-family: ${({ theme: { paragraphFont } }) => paragraphFont};
 
   blockquote {
@@ -189,12 +189,13 @@ export const IntroParagraph = styled.p`
 export const GitHubLinkWrap = styled.span<{ isPc?: boolean }>`
   display: flex !important;
   /* padding-left: 100px; */
-  padding-left: ${({ isPc }) => (isPc ? "100px" : "100px")};
-  margin-top: 20px;
+  /* padding-left: ${({ isPc }) => (isPc ? "100px" : "100px")}; */
+  margin-top: ${({ isPc }) => (isPc ? "0px" : "20px")};
+  /* margin-top: 20px; */
   align-items: center;
 
   a {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     line-height: 1.4em;
     /* text-decoration-line: underline; */
   }
@@ -219,6 +220,7 @@ export const Skill = styled(NameWrap)`
   &::before {
     content: "(02)-skills";
   }
+
   ${media.laptopMax} {
     padding: 20px 20px 0 20px;
   }
@@ -270,5 +272,24 @@ export const ProfileImageWrap = styled.div`
   border: 1px solid ${({ theme: { accentColor } }) => accentColor};
   ${media.mobileMin} {
     display: none;
+  }
+`;
+
+export const InfoWrap = styled.div`
+  /* display: flex; */
+
+  margin: 20px 0 0;
+
+  img {
+    display: block;
+    width: 300px;
+  }
+  & > span {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  svg {
+    margin-right: 10px;
   }
 `;

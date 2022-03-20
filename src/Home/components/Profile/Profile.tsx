@@ -16,12 +16,15 @@ import {
   UnderLineSpan,
   SectionInner,
   IntroParagraphWrap,
+  InfoWrap,
 } from "./styles";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faMailchimp } from "@fortawesome/free-brands-svg-icons";
 import CareerItem from "./components/CareerItem";
 import { careerArr } from "./components/careerData";
 import { CurrentContext } from "../../../Context/ContextStore";
 import SkillSection from "./components/SkillSection";
+import ProfileImage from "./../../../Assets/drawing-19.jpg";
+import { faBook, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
 const Profile: React.FC<{
   loading: boolean;
@@ -30,11 +33,14 @@ const Profile: React.FC<{
 }> = ({ loading, scrollY, changeCursorState }) => {
   const { modalOpen, setModalOpen } = useContext(CurrentContext);
 
+  // 연락처 이메일 사진
+  // SEO 생각해서 NEXT 공부즁
   return (
     <>
       <Container scrl={scrollY} aria-hidden={!loading}>
         <Inner>
           <ProfileImageWrap />
+
           <NameWrap
             // onClick={() => setModalOpen("Profile")}
             onMouseOver={() => changeCursorState("image")}
@@ -49,32 +55,43 @@ const Profile: React.FC<{
               </span>
               <br />
               <UnderLineSpan>
-                <span>Front-end developer</span> <br />
+                <span>Front-end developer</span>
+                <br />
                 based in Seoul, Korea
+                <br />
               </UnderLineSpan>
             </SectionInner>
+            <InfoWrap>
+              <img
+                src={ProfileImage}
+                alt="profileimage"
+                // className="pc-tablet-only"
+              />
+              <span>
+                <FontAwesomeIcon icon={faBook} size="lg" />
+                Contact:&nbsp;hbpark132@gmail.com
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faGithub} size="lg" /> Git hub:&nbsp;
+                <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
+                  <a
+                    href="https://github.com/hbpark2/"
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseOver={() => changeCursorState("jake")}
+                    onMouseOut={() => changeCursorState("")}
+                  >
+                    Go to Jake's GitHub
+                  </a>
+                </GitHubLinkWrap>
+              </span>
+            </InfoWrap>
           </NameWrap>
-          <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
-            <FontAwesomeIcon icon={faGithub} size="lg" />
-            <a
-              href="https://github.com/hbpark2/"
-              target="_blank"
-              rel="noreferrer"
-              onMouseOver={() => changeCursorState("jake")}
-              onMouseOut={() => changeCursorState("")}
-            >
-              Go to Jake's GitHub
-            </a>
-          </GitHubLinkWrap>
 
           <Intro>
             <h3 className="blind">Intro</h3>
 
             <IntroParagraphWrap>
-              {/* 웹의 기초는 구조라고 생각합니다. 
-                  그렇기 떄문에 근거있는 HTML구조를 먼저 
-                  구성하고 작업하는 것을 좋아합니다. */}
-
               <IntroParagraph>
                 반갑습니다!😀
                 <br />
@@ -82,7 +99,7 @@ const Profile: React.FC<{
                 <br />
                 평소 관심이 있는 분야를 직접 구현해 배포해보며
                 <br />
-                공부하고 습득하는 것을 사람들에게 소개하는 것을 좋아합니다.
+                공부하고 습득한 것을 사람들에게 소개하는 것을 좋아합니다.
                 <br />
                 <br />
                 우리가 살아가는 건물의 기초가 구조인 것처럼
@@ -101,9 +118,11 @@ const Profile: React.FC<{
                 재사용이 가능하고 유지보수에 적합한
                 <br />
                 객체 지향 프로그래밍에 관심이 많습니다.
+                {/* <br />
+                {/* 그리고 이에 대해 더 나은 방향은 무얼까
                 <br />
-                그리고 이에 대해 더 나은 방향에 대해 <br />
-                사람들과 얘기 나누곤 합니다.
+                사람들과 얘기를 나누곤 합니다. */}
+                {/** 이에 대해 << 구체적으로 (  ) */}
                 <br />
                 <br />
                 사용자들 팀원들에게 또 어제의 저에게
@@ -116,7 +135,7 @@ const Profile: React.FC<{
             </IntroParagraphWrap>
           </Intro>
 
-          <GitHubLinkWrap className="mobile-only" isPc={false}>
+          {/* <GitHubLinkWrap className="mobile-only" isPc={false}>
             <FontAwesomeIcon icon={faGithub} size="lg" />
             <a
               href="https://github.com/hbpark2/"
@@ -127,7 +146,7 @@ const Profile: React.FC<{
             >
               Go to Jake's GitHub
             </a>
-          </GitHubLinkWrap>
+          </GitHubLinkWrap> */}
 
           <Skill>
             <h3 className="blind">Skills</h3>
