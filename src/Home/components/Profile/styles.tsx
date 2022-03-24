@@ -154,7 +154,7 @@ export const Intro = styled(NameWrap)`
     content: "(01)-intro";
   }
   ${media.laptopMax} {
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0 15px;
   }
 `;
 
@@ -181,8 +181,8 @@ export const IntroParagraph = styled.p`
   line-height: 1.7em;
   font-size: 20px;
   ${media.laptopMax} {
-    width: 300px;
-    font-size: 15px;
+    width: auto;
+    font-size: 16px;
   }
 `;
 
@@ -203,7 +203,7 @@ export const GitHubLinkWrap = styled.span<{ isPc?: boolean }>`
   ${media.laptopMax} {
     flex-direction: column;
     padding: 0;
-    margin: 40px 0;
+    /* margin: 40px 0; */
     svg {
       font-size: 70px;
       margin-bottom: 20px;
@@ -222,7 +222,7 @@ export const Skill = styled(NameWrap)`
   }
 
   ${media.laptopMax} {
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0 15px;
   }
 `;
 

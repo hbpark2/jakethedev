@@ -190,7 +190,7 @@ const SkillSection = () => {
               <dt>Git</dt>
               <dd>
                 <GitHubLinkWrapInSkill className="pc-tablet-only" isPc={true}>
-                  <FontAwesomeIcon icon={faGithub} size="lg" />
+                  {/* <FontAwesomeIcon icon={faGithub} size="lg" /> */}
                   <a
                     href="https://github.com/hbpark2/"
                     target="_blank"

@@ -22,7 +22,8 @@ const Header = () => {
     useContext(CurrentContext);
 
   const [menuHide, setMenuHide] = useState(false);
-
+  const [startY, setStartY] = useState<number>();
+  const [endY, setEndY] = useState<number>();
   const location = useLocation();
   const onOpenMenu = () => {
     setMenuOpen(!menuOpen);
@@ -36,7 +37,24 @@ const Header = () => {
         setMenuHide(false);
       }
     });
-  });
+
+    document.addEventListener("touchstart", (e: TouchEvent) => {
+      setStartY(e.changedTouches[0].clientY);
+    });
+    document.addEventListener("touchend", (e: TouchEvent) => {
+      setEndY(e.changedTouches[0].clientY);
+    });
+
+    if (startY && endY) {
+      if (startY > endY) {
+        console.log("up");
+        setMenuHide(true);
+      } else {
+        console.log("down");
+        setMenuHide(false);
+      }
+    }
+  }, [startY]);
 
   return (
     <Container menuHide={menuHide}>
