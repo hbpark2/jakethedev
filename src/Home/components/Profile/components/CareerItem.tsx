@@ -46,8 +46,10 @@ const CareerTypeWrap = styled.ul`
 
 const CareerParagraph = styled.p`
   padding: 7px 0 0;
-  font-size: 20px;
+  font-size: 18px;
+  /* letter-spacing: 1.5px; */
   color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4em;
 `;
 
 const Line = styled.i`
@@ -102,8 +104,8 @@ const SkillWrap = styled.dl`
   align-items: center;
   dd {
     display: inline;
-    font-size: 18px;
-    line-height: 1.6em;
+    font-size: 16px;
+    line-height: 1em;
     margin-right: 5px;
     &:not(:last-child) {
       &::after {
@@ -121,8 +123,8 @@ const SkillWrap = styled.dl`
 
 const SkillTitle = styled.dt`
   display: block;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 5px;
   margin-right: 10px;
 `;
 
@@ -139,7 +141,7 @@ interface CareerItemProps {
   title: string | modalType;
   subTitle: string;
   date: string;
-  children: React.ReactNode;
+  children: React.ReactNode | React.FC;
   isModal?: boolean;
   skills?: string[];
   images?: string[];
@@ -187,9 +189,9 @@ const CareerItem: React.FC<CareerItemProps> = ({
 
       {isModal ? (
         <ImageWrap
-          onMouseOver={() => changeCursorState("viewDetail")}
-          onMouseOut={() => changeCursorState("")}
-          onClick={() => setModalOpen(title)}
+        // onMouseOver={() => changeCursorState("viewDetail")}
+        // onMouseOut={() => changeCursorState("")}
+        // onClick={() => setModalOpen(title)}
         >
           {images && images.length > 0 && (
             <img src={images[0]} alt="미리보기 이미지" />

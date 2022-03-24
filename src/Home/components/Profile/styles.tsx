@@ -275,20 +275,25 @@ export const ProfileImageWrap = styled.div`
   }
 `;
 
-export const InfoWrap = styled.div`
-  /* display: flex; */
-
+export const InfoWrap = styled(NameWrap)`
+  padding-top: 0;
   margin: 20px 0 0;
+
+  &:before {
+    content: none;
+  }
 
   img {
     display: block;
     width: 300px;
   }
-  & > span {
+
+  ul {
     display: flex;
     align-items: center;
     margin-top: 10px;
   }
+
   svg {
     margin-right: 10px;
   }

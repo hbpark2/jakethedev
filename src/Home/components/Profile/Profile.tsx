@@ -20,11 +20,11 @@ import {
 } from "./styles";
 import { faGithub, faMailchimp } from "@fortawesome/free-brands-svg-icons";
 import CareerItem from "./components/CareerItem";
-import { careerArr } from "./components/careerData";
 import { CurrentContext } from "../../../Context/ContextStore";
 import SkillSection from "./components/SkillSection";
 import ProfileImage from "./../../../Assets/drawing-19.jpg";
 import { faBook, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { careerArr } from "./components/careerData";
 
 const Profile: React.FC<{
   loading: boolean;
@@ -61,32 +61,41 @@ const Profile: React.FC<{
                 <br />
               </UnderLineSpan>
             </SectionInner>
-            <InfoWrap>
+          </NameWrap>
+          <InfoWrap>
+            <div>
               <img
                 src={ProfileImage}
                 alt="profileimage"
                 // className="pc-tablet-only"
               />
-              <span>
-                <FontAwesomeIcon icon={faBook} size="lg" />
-                Contact:&nbsp;hbpark132@gmail.com
-              </span>
-              <span>
-                <FontAwesomeIcon icon={faGithub} size="lg" /> Git hub:&nbsp;
-                <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
-                  <a
-                    href="https://github.com/hbpark2/"
-                    target="_blank"
-                    rel="noreferrer"
-                    onMouseOver={() => changeCursorState("jake")}
-                    onMouseOut={() => changeCursorState("")}
-                  >
-                    Go to Jake's GitHub
-                  </a>
-                </GitHubLinkWrap>
-              </span>
-            </InfoWrap>
-          </NameWrap>
+              <ul>
+                <li>
+                  <FontAwesomeIcon icon={faBook} size="lg" />
+                </li>
+                <li>Contact:&nbsp;hbpark132@gmail.com</li>
+              </ul>
+              <ul>
+                <li>
+                  <FontAwesomeIcon icon={faGithub} size="lg" />
+                  Git hub:
+                </li>
+                <li>
+                  <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
+                    <a
+                      href="https://github.com/hbpark2/"
+                      target="_blank"
+                      rel="noreferrer"
+                      onMouseOver={() => changeCursorState("jake")}
+                      onMouseOut={() => changeCursorState("")}
+                    >
+                      &nbsp;Go to Jake's GitHub
+                    </a>
+                  </GitHubLinkWrap>
+                </li>
+              </ul>
+            </div>
+          </InfoWrap>
 
           <Intro>
             <h3 className="blind">Intro</h3>
@@ -125,7 +134,7 @@ const Profile: React.FC<{
                 {/** 이에 대해 << 구체적으로 (  ) */}
                 <br />
                 <br />
-                사용자들 팀원들에게 또 어제의 저에게
+                팀원들에게 또 어제의 저에게
                 <br />
                 보기 좋고, 쉬운 코드를 남기는 것이
                 <br />
@@ -168,15 +177,17 @@ const Profile: React.FC<{
                   images={item.images}
                   url={item.url}
                 >
-                  {item.children.split("<br />").map((line, index) => {
-                    let makeSpanKey = `line${index}`;
-                    return (
-                      <React.Fragment key={makeSpanKey}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    );
-                  })}
+                  {typeof item.children === "string"
+                    ? item.children.split("<br />").map((line, index) => {
+                        let makeSpanKey = `line${index}`;
+                        return (
+                          <React.Fragment key={makeSpanKey}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        );
+                      })
+                    : item.children}
                 </CareerItem>
               ))}
             </CareerInner>

@@ -131,7 +131,7 @@ const SkillSection = () => {
             <Description>
               <dt>React</dt>
               <dd>
-                - 효율적인 State관리와,
+                - useContext를 이용한 효율적인 State관리와,
                 <br />
                 &nbsp; useEffect, useMemo 등을 이용해
                 <br />

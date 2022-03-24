@@ -28,11 +28,16 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
       <CircleBox scrl={scrollY}>
         <h3 className="blind">intro</h3>
         <IntroSection>
+          {/**FIXME: */}
           <IntroTop scrl={scrollY}>
-            <span>Selected Art&amp;Works</span>
+            <span>
+              Selected Art&amp;Works
+              {/* Last Update */}
+            </span>
             <Line />
             <span>
               &#40; 0{tabState.id} - 0{TabArr.length} &#41;
+              {/* 2022 */}
             </span>
           </IntroTop>
           <IntroCenter
