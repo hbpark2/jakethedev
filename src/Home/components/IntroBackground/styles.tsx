@@ -208,10 +208,7 @@ export const IntroTop = styled.div<{ scrl: number }>`
     display: block;
     flex: 1;
     text-align: center;
-  }
-
-  span:last-of-type {
-    flex: 0.6;
+    font-size: 30px;
   }
 
   ${media.laptopMax} {
@@ -257,7 +254,7 @@ export const IntroTop = styled.div<{ scrl: number }>`
 `;
 
 export const Line = styled.i`
-  flex: 1.4;
+  flex: 1.5;
   display: block;
   height: 1px;
   background-color: ${({ theme: { accentColor } }) => accentColor};

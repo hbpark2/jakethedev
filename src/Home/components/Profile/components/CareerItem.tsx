@@ -44,7 +44,7 @@ const CareerTypeWrap = styled.ul`
   }
 `;
 
-const CareerParagraph = styled.p`
+const CareerParagraph = styled.div`
   padding: 7px 0 0;
   font-size: 18px;
   /* letter-spacing: 1.5px; */

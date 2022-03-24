@@ -127,11 +127,6 @@ const Profile: React.FC<{
                 재사용이 가능하고 유지보수에 적합한
                 <br />
                 객체 지향 프로그래밍에 관심이 많습니다.
-                {/* <br />
-                {/* 그리고 이에 대해 더 나은 방향은 무얼까
-                <br />
-                사람들과 얘기를 나누곤 합니다. */}
-                {/** 이에 대해 << 구체적으로 (  ) */}
                 <br />
                 <br />
                 팀원들에게 또 어제의 저에게
@@ -143,19 +138,6 @@ const Profile: React.FC<{
               </IntroParagraph>
             </IntroParagraphWrap>
           </Intro>
-
-          {/* <GitHubLinkWrap className="mobile-only" isPc={false}>
-            <FontAwesomeIcon icon={faGithub} size="lg" />
-            <a
-              href="https://github.com/hbpark2/"
-              target="_blank"
-              rel="noreferrer"
-              onMouseOver={() => changeCursorState("jake")}
-              onMouseOut={() => changeCursorState("")}
-            >
-              Go to Jake's GitHub
-            </a>
-          </GitHubLinkWrap> */}
 
           <Skill>
             <h3 className="blind">Skills</h3>

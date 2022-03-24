@@ -72,7 +72,21 @@ const Description = styled.dl`
 `;
 
 const GitHubLinkWrapInSkill = styled(GitHubLinkWrap)`
+  svg {
+    margin-top: 5px;
+    margin-right: 10px;
+  }
   padding-left: 0;
+  ${media.laptopMax} {
+    flex-direction: row;
+    padding: 0;
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    svg {
+      font-size: 30px;
+    }
+  }
 `;
 
 const SkillSection = () => {

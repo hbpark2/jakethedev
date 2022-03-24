@@ -31,13 +31,13 @@ const IntroBackground: React.FC<{ scrollY: number }> = ({ scrollY }) => {
           {/**FIXME: */}
           <IntroTop scrl={scrollY}>
             <span>
-              Selected Art&amp;Works
-              {/* Last Update */}
+              {/* Selected Art&amp;Works */}
+              Last Update
             </span>
             <Line />
             <span>
-              &#40; 0{tabState.id} - 0{TabArr.length} &#41;
-              {/* 2022 */}
+              {/* &#40; 0{tabState.id} - 0{TabArr.length} &#41; */}
+              2022
             </span>
           </IntroTop>
           <IntroCenter
