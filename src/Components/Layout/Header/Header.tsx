@@ -37,7 +37,7 @@ const Header = () => {
         setMenuHide(false);
       }
     });
-  }, [startY]);
+  });
 
   useLayoutEffect(() => {
     document.addEventListener("touchstart", (e: TouchEvent) => {
@@ -57,7 +57,7 @@ const Header = () => {
         setMenuHide(false);
       }
     }
-  }, [startY]);
+  });
 
   return (
     <Container menuHide={menuHide}>
