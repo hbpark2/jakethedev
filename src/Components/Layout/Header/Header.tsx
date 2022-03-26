@@ -46,17 +46,16 @@ const Header = () => {
 
     document.addEventListener("touchend", (e: TouchEvent) => {
       setEndY(e.changedTouches[0].clientY);
-    });
-
-    if (startY && endY) {
-      if (startY > endY) {
-        console.log("up");
-        setMenuHide(true);
-      } else {
-        console.log("down");
-        setMenuHide(false);
+      if (startY && endY) {
+        if (startY > endY) {
+          console.log("up");
+          setMenuHide(true);
+        } else {
+          console.log("down");
+          setMenuHide(false);
+        }
       }
-    }
+    });
   });
 
   return (
