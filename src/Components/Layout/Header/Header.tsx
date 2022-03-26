@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CurrentContext } from "../../../Context/ContextStore";
 import { TabLine } from "../../../Home/components/Tab/styles";
@@ -37,10 +37,13 @@ const Header = () => {
         setMenuHide(false);
       }
     });
+  }, [startY]);
 
+  useLayoutEffect(() => {
     document.addEventListener("touchstart", (e: TouchEvent) => {
       setStartY(e.changedTouches[0].clientY);
     });
+
     document.addEventListener("touchend", (e: TouchEvent) => {
       setEndY(e.changedTouches[0].clientY);
     });
