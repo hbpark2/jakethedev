@@ -30,32 +30,35 @@ const Header = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("wheel", (e: WheelEvent) => {
-      if (e.deltaY > 0) {
-        setMenuHide(true);
-      } else {
-        setMenuHide(false);
-      }
-    });
-  });
+    if (window.innerWidth < 1024) {
+      document.addEventListener("touchstart", (e: TouchEvent) => {
+        setStartY(e.changedTouches[0].clientY);
+      });
 
-  useLayoutEffect(() => {
-    document.addEventListener("touchstart", (e: TouchEvent) => {
-      setStartY(e.changedTouches[0].clientY);
-    });
-
-    document.addEventListener("touchend", (e: TouchEvent) => {
-      setEndY(e.changedTouches[0].clientY);
-      if (startY && endY) {
-        if (startY > endY) {
-          console.log("up");
+      document.addEventListener("touchend", (e: TouchEvent) => {
+        setEndY(e.changedTouches[0].clientY);
+      });
+    } else {
+      document.addEventListener("wheel", (e: WheelEvent) => {
+        if (e.deltaY > 0) {
           setMenuHide(true);
         } else {
-          console.log("down");
           setMenuHide(false);
         }
+      });
+    }
+  }, [location]);
+
+  useLayoutEffect(() => {
+    if (startY && endY) {
+      if (startY > endY) {
+        console.log("up");
+        setMenuHide(true);
+      } else {
+        console.log("down");
+        setMenuHide(false);
       }
-    });
+    }
   });
 
   return (
