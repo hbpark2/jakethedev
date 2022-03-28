@@ -70,18 +70,12 @@ const Profile: React.FC<{
                 // className="pc-tablet-only"
               />
               <ul>
-                <li>
-                  <FontAwesomeIcon icon={faBook} size="lg" />
-                </li>
                 <li>Contact:&nbsp;hbpark132@gmail.com</li>
               </ul>
               <ul>
                 <li>
-                  <FontAwesomeIcon icon={faGithub} size="lg" />
-                  Git hub:
-                </li>
-                <li>
                   <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
+                    Git hub:
                     <a
                       href="https://github.com/hbpark2/"
                       target="_blank"

@@ -52,10 +52,10 @@ const Header = () => {
   useLayoutEffect(() => {
     if (startY && endY) {
       if (startY > endY) {
-        console.log("up");
+        // console.log("up");
         setMenuHide(true);
       } else {
-        console.log("down");
+        // console.log("down");
         setMenuHide(false);
       }
     }

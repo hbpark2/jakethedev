@@ -12,13 +12,31 @@ const Container = styled.div`
   }
 `;
 
+const DescriptionUl = styled.ul`
+  .description-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    &::before {
+      content: "🖋 ";
+    }
+  }
+  li {
+    margin: 10px 0;
+  }
+  dd {
+    &::before {
+      content: "- ";
+    }
+  }
+`;
+
 const HwamoekParagraph = () => {
   return (
     <Container>
       <p>
         화목 프로젝트는 식물도감과 SNS기능을 갖춘 플랫폼입니다.
         <br />
-        핵심기능으로는 관리자계정의 식물도감 업로드, 유저의 게시글 CRUD 등이
+        핵심기능으로는 관리자계정의 식물도감 CRUD, 유저의 게시글 CRUD 등이
         있습니다.
       </p>
       <p>
@@ -55,7 +73,7 @@ const RVNParagraph = () => {
         <br />
         class명이 겹치지 않게, Heading태그의 중요도순으로 배치,
         <br />
-        최대한 모든 화면에 대응하는 반응형, 그리고 웹 표준과 접근성에 신경쓰며
+        최대한 모든 화면에 대응하는 반응형, 웹 표준과 접근성에 신경쓰며
         작업했습니다.
       </p>
     </Container>
@@ -63,7 +81,36 @@ const RVNParagraph = () => {
 };
 
 const KmasParagrpah = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <p>
+        K-MAS 프로젝트는 중소벤처기업부에서 크리스마스를 맞아
+        <br />
+        중소·소상공인을 대상으로 판매촉진과 홍보하는 행사 플랫폼입니다.
+        <br />
+        2020년, 2021년에 프론트엔드 및 퍼블리싱을 전담했습니다.
+        <br />
+      </p>
+      <p>구현한 기능은 다음과 같습니다.</p>
+      <DescriptionUl>
+        <li>
+          <dl>
+            <dt className="description-title">소상공인 게시판</dt>
+            <dd>업체또는 상품을 홍보할 수 있는 게시판입니다.</dd>
+            <dd>react-hook-form, yup, react-query를 사용했습니다 .</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">
+              라이브커머스 시간표, 공연시간표
+            </dt>
+            <dd>현재날짜의 시간표를 표시해주는 시간표입니다.</dd>
+          </dl>
+        </li>
+      </DescriptionUl>
+    </Container>
+  );
 };
 
 export const careerArr = [
@@ -105,11 +152,12 @@ export const careerArr = [
   // },
   {
     type: "FRONT-END",
-    title: "K-MAS-2021",
+    title: "K-MAS",
     subTitle: "중소벤처기업부 ( 이벤트 사이트 )",
     date: "2021.11.01 ~ 2021.12.31",
-    children:
-      "K-MAS 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
+    // children:
+    //   "K-MAS 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
+    children: <KmasParagrpah />,
     isModal: false,
     skills: ["React", "Typescript", "Google Analytics"],
     images: [KMAS2021IMAGE],

@@ -188,11 +188,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
       )}
 
       {isModal ? (
-        <ImageWrap
-        // onMouseOver={() => changeCursorState("viewDetail")}
-        // onMouseOut={() => changeCursorState("")}
-        // onClick={() => setModalOpen(title)}
-        >
+        <ImageWrap>
           {images && images.length > 0 && (
             <img src={images[0]} alt="미리보기 이미지" />
           )}
@@ -214,26 +210,6 @@ const CareerItem: React.FC<CareerItemProps> = ({
         </LinkWrap>
       )}
 
-      {/* {isModal ? (
-        <ModalButton
-          onMouseOver={() => changeCursorState("bigger")}
-          onMouseOut={() => changeCursorState("")}
-          onClick={() => setModalOpen(title)}
-        >
-          Go to {title}
-        </ModalButton>
-      ) : (
-        <LinkButton
-          href={url && url}
-          target="_blank"
-          title="go to detail page"
-          rel="norefferer"
-          onMouseOver={() => changeCursorState("bigger")}
-          onMouseOut={() => changeCursorState("")}
-        >
-          Go to {title}
-        </LinkButton>
-      )} */}
       <Line />
     </Container>
   );

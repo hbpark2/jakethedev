@@ -17,9 +17,6 @@ const Wrap = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* width: 100%; */
-  /* width: 80%; */
   padding: 30px 0;
   border: 1px solid rgba(228, 203, 172, 0.3);
   border-radius: 25px;
@@ -29,17 +26,15 @@ const Wrap = styled.div`
   }
 `;
 
-const Title = styled.span`
+const Title = styled.span<{ isHome?: boolean }>`
   position: absolute;
-  top: -20px;
+  top: -12.5px;
   left: 50%;
-  /* width: 80%; */
   padding: 0 15px;
   transform: translateX(-50%);
   text-align: center;
-  /* border: 1px solid ${({ theme: { accentColor } }) => accentColor}; */
   border-radius: 10px;
-  background-color: #000;
+  background-color: ${({ isHome }) => (isHome ? "transparent" : "#000")};
   font-weight: 700;
 `;
 
@@ -56,7 +51,6 @@ const ItemListWrap = styled.ul`
 
 const Description = styled.dl`
   dt {
-    /* opacity: 0.7; */
     margin-bottom: 3px;
     span {
       font-size: 0.8em;
@@ -72,11 +66,11 @@ const Description = styled.dl`
 `;
 
 const GitHubLinkWrapInSkill = styled(GitHubLinkWrap)`
+  padding-left: 0;
   svg {
     margin-top: 5px;
     margin-right: 10px;
   }
-  padding-left: 0;
   ${media.laptopMax} {
     flex-direction: row;
     padding: 0;
@@ -89,12 +83,25 @@ const GitHubLinkWrapInSkill = styled(GitHubLinkWrap)`
   }
 `;
 
-const SkillSection = () => {
+const SkillSection: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
   return (
     <Container>
       <Wrap>
-        <Title>Front-end</Title>
+        <Title isHome={isHome}>Front-end</Title>
         <ItemListWrap>
+          <li>
+            <Description>
+              <dt>React</dt>
+              <dd>
+                - useContext를 이용한 효율적인 State관리와,
+                <br />
+                &nbsp; useEffect, useMemo 등을 이용해
+                <br />
+                &nbsp; 라이프사이클을 관리할 수 있습니다.
+                <br />- useform을 이용한 form 구현이 가능합니다.
+              </dd>
+            </Description>
+          </li>
           <li>
             <Description>
               <dt>HTML5</dt>
@@ -141,19 +148,7 @@ const SkillSection = () => {
               <dd></dd>
             </Description>
           </li>
-          <li>
-            <Description>
-              <dt>React</dt>
-              <dd>
-                - useContext를 이용한 효율적인 State관리와,
-                <br />
-                &nbsp; useEffect, useMemo 등을 이용해
-                <br />
-                &nbsp; 라이프사이클을 관리할 수 있습니다.
-                <br />- useform을 이용한 form 구현이 가능합니다.
-              </dd>
-            </Description>
-          </li>
+
           <li>
             <Description>
               <dt>Next</dt>
@@ -166,14 +161,14 @@ const SkillSection = () => {
         </ItemListWrap>
       </Wrap>
       <Wrap>
-        <Title>Mobile App</Title>
+        <Title isHome={isHome}>Mobile App</Title>
         <ItemListWrap>
           <li>React Native</li>
           <li>Flutter</li>
         </ItemListWrap>
       </Wrap>
-      <Wrap>
-        <Title>Back-end</Title>
+      {/* <Wrap>
+        <Title isHome={isHome}>Back-end</Title>
         <ItemListWrap>
           <li>node.js</li>
           <li>nest.js</li>
@@ -181,9 +176,9 @@ const SkillSection = () => {
           <li>graphQL</li>
           <li>PostgreSQL</li>
         </ItemListWrap>
-      </Wrap>
+      </Wrap> */}
       <Wrap>
-        <Title>Version Control</Title>
+        <Title isHome={isHome}>Version Control</Title>
         <ItemListWrap>
           <li>
             <Description>
@@ -203,12 +198,25 @@ const SkillSection = () => {
             </Description>
           </li>
           <li>github</li>
+          {/* <li>
+            <Description>
+              <dt>Naver</dt>
+              <dd>Naver map, login</dd>
+            </Description>
+          </li>
+          <li>
+            <Description>
+              <dt>Kakao</dt>
+              <dd>Kakao map, login</dd>
+            </Description>
+          </li> */}
         </ItemListWrap>
       </Wrap>
       <Wrap>
-        <Title>Deployment</Title>
+        <Title isHome={isHome}>Deployment</Title>
         <ItemListWrap>
           <li>Netlify</li>
+          <li>Heroku</li>
           <li>Azure</li>
           <li>Cafe24</li>
         </ItemListWrap>

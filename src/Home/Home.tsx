@@ -1,9 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Cursor from "../Components/Common/Cursor";
 import { useScroll } from "../Hooks/Scroll";
 import Background from "./components/Background/Background";
 import ScrollCircle from "./components/ScrollCircle";
-import { Container } from "./styles";
+import { Container, SectionContainer, SectionInner } from "./styles";
+import { Career, CareerInner } from "./components/Profile/styles";
+
 import IntroBackground from "./components/IntroBackground/IntroBackground";
 import { CurrentContext } from "../Context/ContextStore";
 
@@ -14,6 +16,9 @@ import Resume from "./components/Resume/Resume";
 import Modal from "../Components/Common/Modal";
 import CareerPopup from "./components/Profile/components/CareerPopup";
 import ProfilePopup from "./components/Profile/components/ProfilePopup";
+import SkillSection from "./components/Profile/components/SkillSection";
+import CareerItem from "./components/Profile/components/CareerItem";
+import { careerArr } from "./components/Profile/components/careerData";
 
 const Home = () => {
   const { currentPosition, changeCursorState, menuOpen, tabState, modalOpen } =
@@ -73,22 +78,51 @@ const Home = () => {
               />
             )}
 
-            {tabState.type === "Front-end" && (
-              <Works
-                loading={loading}
-                scrollY={scrollY}
-                changeCursorState={changeCursorState}
-                worksType="FRONT-END"
-              />
+            {tabState.type === "Skills" && (
+              <SectionContainer scrl={scrollY}>
+                <SectionInner>
+                  <SkillSection isHome={true} />
+                </SectionInner>
+              </SectionContainer>
             )}
 
-            {tabState.type === "Back-end" && (
-              <Works
-                loading={loading}
-                scrollY={scrollY}
-                changeCursorState={changeCursorState}
-                worksType="BACK-END"
-              />
+            {tabState.type === "Works" && (
+              <SectionContainer scrl={scrollY}>
+                <SectionInner>
+                  <Career>
+                    <h3 className="blind">Project</h3>
+                    <CareerInner>
+                      {careerArr.map((item, index) => (
+                        <CareerItem
+                          key={`career ${index}`}
+                          type={item.type}
+                          title={item.title}
+                          subTitle={item.subTitle}
+                          date={item.date}
+                          isModal={item.isModal}
+                          skills={item.skills}
+                          images={item.images}
+                          url={item.url}
+                        >
+                          {typeof item.children === "string"
+                            ? item.children
+                                .split("<br />")
+                                .map((line, index) => {
+                                  let makeSpanKey = `line${index}`;
+                                  return (
+                                    <React.Fragment key={makeSpanKey}>
+                                      {line}
+                                      <br />
+                                    </React.Fragment>
+                                  );
+                                })
+                            : item.children}
+                        </CareerItem>
+                      ))}
+                    </CareerInner>
+                  </Career>
+                </SectionInner>
+              </SectionContainer>
             )}
           </>
         )}
