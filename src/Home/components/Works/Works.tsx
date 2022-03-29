@@ -28,17 +28,7 @@ const Works: React.FC<{
                   date={item.date}
                   skills={item.skills}
                 >
-                  {typeof item.children === "string"
-                    ? item.children.split("<br />").map((line, index) => {
-                        let makeSpanKey = `line${index}`;
-                        return (
-                          <React.Fragment key={makeSpanKey}>
-                            {line}
-                            <br />
-                          </React.Fragment>
-                        );
-                      })
-                    : item.children}
+                  {item.children}
                 </CareerItem>
               ) : (
                 item.type !== "FRONT-END" && (
@@ -50,17 +40,7 @@ const Works: React.FC<{
                     date={item.date}
                     skills={item.skills}
                   >
-                    {typeof item.children === "string"
-                      ? item.children.split("<br />").map((line, index) => {
-                          let makeSpanKey = `line${index}`;
-                          return (
-                            <React.Fragment key={makeSpanKey}>
-                              {line}
-                              <br />
-                            </React.Fragment>
-                          );
-                        })
-                      : item.children}
+                    {item.children}
                   </CareerItem>
                 )
               )

@@ -7,12 +7,27 @@ import THROADIMAGE from "../../../../Assets/screen-throad.png";
 import styled from "styled-components";
 
 const Container = styled.div`
+  /* background-color: rgba(255, 255, 255, 0.9);
+  width: calc(70% - 40px);
+  padding: 20px;
+  color: #000; */
+  /* border-radius: 15px; */
   p {
     margin-bottom: 10px;
   }
 `;
 
 const DescriptionUl = styled.ul`
+  background-color: rgba(255, 255, 255, 0.9);
+  width: calc(70% - 40px);
+  padding: 20px;
+  color: #000;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  .ps {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+  }
   .description-title {
     font-weight: 600;
     margin-bottom: 5px;
@@ -24,8 +39,17 @@ const DescriptionUl = styled.ul`
     margin: 10px 0;
   }
   dd {
+    margin-left: 20px;
+    font-size: 0.9em;
     &::before {
       content: "- ";
+    }
+  }
+
+  .only-list {
+    display: flex;
+    span {
+      margin-right: 5px;
     }
   }
 `;
@@ -34,29 +58,39 @@ const HwamoekParagraph = () => {
   return (
     <Container>
       <p>
-        화목 프로젝트는 식물도감과 SNS기능을 갖춘 플랫폼입니다.
+        화목은 개인 사이드 프로젝트이며 식물도감과 SNS 플랫폼입니다.
         <br />
-        핵심기능으로는 관리자계정의 식물도감 CRUD, 유저의 게시글 CRUD 등이
-        있습니다.
+        구현한 기능은 다음과 같습니다.
       </p>
-      <p>
-        Front-end 개발시에는 apollo cache를 이용해 게시글 또는 프로필 수정 시
-        로딩시간을 줄여보려 했고,
-        <br />
-        기존에 비해 1-2초 정도의 로딩시간을 줄이는 효과적인 결과를 얻었습니다.
-      </p>
-      <p>
-        Back-end의 경우 Apollo와 GraphQL, Prisma를 이용해 구성했고 Heroku로
-        배포했습니다.
-        <br />
-        AWS S3를 이용해 사진업로드 기능을 구현했습니다.
-      </p>
-      <p>
-        그리고 현재 javascript와 react로 만들었지만 SEO와 더 나은 유지보수를
-        위해
-        <br />
-        NEXT와 typescript로 바꾸는 작업을 진행중입니다.
-      </p>
+      <DescriptionUl>
+        <li>
+          <dl>
+            <dt className="description-title">
+              유저, 식물도감, 게시글, 댓글과 답글 CRUD
+            </dt>
+            <dd>Backend는 Prisma, Apollo, grpahQL로 구성했습니다.</dd>
+            <dd>
+              회원가입과 로그인은 카카오로그인API를 사용해 간편로그인을
+              구현했습니다.
+            </dd>
+            <dd>
+              게시글 수정시(Update) apollo의 cache를 사용해 로딩시간을
+              단축시켰습니다.
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">게시글 인피니티 스크롤</dt>
+            <dd>react-infinite-scroll 를 사용했습니다.</dd>
+          </dl>
+        </li>
+
+        <li className="ps">
+          현재 더 나은 SEO와 유지보수를 위해 NEXT와 Typescript로 바꾸는
+          고도화작업을 진행중입니다.
+        </li>
+      </DescriptionUl>
     </Container>
   );
 };
@@ -96,7 +130,9 @@ const KmasParagrpah = () => {
         <li>
           <dl>
             <dt className="description-title">소상공인 게시판</dt>
-            <dd>업체또는 상품을 홍보할 수 있는 게시판입니다.</dd>
+            <dd>
+              게시글을 업로드하고 카테고리별로 검색할 수 있는 게시판입니다.
+            </dd>
             <dd>react-hook-form, yup, react-query를 사용했습니다 .</dd>
           </dl>
         </li>
@@ -105,8 +141,71 @@ const KmasParagrpah = () => {
             <dt className="description-title">
               라이브커머스 시간표, 공연시간표
             </dt>
-            <dd>현재날짜의 시간표를 표시해주는 시간표입니다.</dd>
+            <dd>현재날짜에 해당하는 시간표를 표시해주는 시간표입니다.</dd>
           </dl>
+        </li>
+      </DescriptionUl>
+    </Container>
+  );
+};
+
+const KsaleParagrpah = () => {
+  return (
+    <Container>
+      <p>
+        K-SALE 프로젝트는 중소·소상공인을 대상으로 판매촉진과 홍보하는 행사
+        플랫폼입니다.
+        <br />
+        프론트엔드 및 퍼블리싱을 전담했습니다.
+        <br />
+      </p>
+      <p>구현한 기능은 다음과 같습니다.</p>
+      <DescriptionUl>
+        <li>
+          <dl>
+            <dt className="description-title">소상공인 게시판</dt>
+            <dd>
+              게시글을 업로드하고 카테고리별로 검색할 수 있는 게시판입니다.
+            </dd>
+            <dd>
+              react-hook-form, naver map API, react-daum-postcode를 사용해
+              <br />
+              위치와 그 위치의 정보를 검색할 수 있습니다.
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">라이브커머스 시간표, 스트리밍</dt>
+            <dd>
+              현재날짜에 해당하는 시간표와 방송을 스트리밍 해주는 기능입니다.
+            </dd>
+          </dl>
+        </li>
+      </DescriptionUl>
+    </Container>
+  );
+};
+
+const MutaccatoParagrpah = () => {
+  return (
+    <Container>
+      <p>
+        Mutaccato는 디자이너의 포트폴리오 외주를 받아 진행한 프로젝트입니다.
+      </p>
+      <DescriptionUl>
+        <li className="only-list">
+          <span>🖋 </span>반응형으로 제작했습니다.
+        </li>
+        <li className="only-list">
+          <span>🖋 </span>클라이언트가 요구한 디자인에, 인터랙티브한 javascript
+          액션을 추가해서 작업했습니다.
+        </li>
+        <li className="only-list">
+          <span>🖋 </span>초기에 HTML5, CSS, javascript로 구현하고 cafe24로
+          호스팅을 했고,
+          <br />
+          유지보수에 용이하게 현재 react로 재구성하여 netlify에 배포했습니다.
         </li>
       </DescriptionUl>
     </Container>
@@ -169,8 +268,7 @@ export const careerArr = [
     title: "K-SALE-2021",
     subTitle: "동행세일 ( 이벤트 사이트 )",
     date: "2021.05.22 ~ 2021.07.20",
-    children:
-      "K-SALE 2021 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
+    children: <KsaleParagrpah />,
     isModal: false,
     skills: ["React", "Typescript"],
     images: [KSALE2021IMAGE],
@@ -205,8 +303,7 @@ export const careerArr = [
     title: "Mutaccato",
     subTitle: "디자이너 포트폴리오 ( 개인외주 )",
     date: "2020.06.01 ~ 2020.07.01",
-    children:
-      "반응형 디자이너 포트폴리오입니다. <br /> 웹접근성(WAI-ARIA)을 갖춘 HTML 구조와 반응형 CSS, <br /> 사용자 인터렉션 위주의 Javascript를 담당했습니다.",
+    children: <MutaccatoParagrpah />,
     isModal: false,
     skills: ["HTML5", "CSS3", "Javascript"],
     images: [MUTACCATOIMAGE],

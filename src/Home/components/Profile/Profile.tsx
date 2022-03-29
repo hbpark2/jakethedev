@@ -153,17 +153,7 @@ const Profile: React.FC<{
                   images={item.images}
                   url={item.url}
                 >
-                  {typeof item.children === "string"
-                    ? item.children.split("<br />").map((line, index) => {
-                        let makeSpanKey = `line${index}`;
-                        return (
-                          <React.Fragment key={makeSpanKey}>
-                            {line}
-                            <br />
-                          </React.Fragment>
-                        );
-                      })
-                    : item.children}
+                  {item.children}
                 </CareerItem>
               ))}
             </CareerInner>

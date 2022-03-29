@@ -47,7 +47,6 @@ const CareerTypeWrap = styled.ul`
 const CareerParagraph = styled.div`
   padding: 7px 0 0;
   font-size: 18px;
-  /* letter-spacing: 1.5px; */
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.4em;
 `;
@@ -178,14 +177,6 @@ const CareerItem: React.FC<CareerItemProps> = ({
       </h4>
 
       <CareerParagraph>{children}</CareerParagraph>
-      {skills && skills.length > 0 && (
-        <SkillWrap>
-          <SkillTitle>Using: </SkillTitle>
-          {skills.map((item, index) => (
-            <dd key={`skill${index}`}>{item}</dd>
-          ))}
-        </SkillWrap>
-      )}
 
       {isModal ? (
         <ImageWrap>
@@ -209,6 +200,15 @@ const CareerItem: React.FC<CareerItemProps> = ({
           </ImageWrap>
         </LinkWrap>
       )}
+
+      {/* {skills && skills.length > 0 && (
+        <SkillWrap>
+          <SkillTitle>Using: </SkillTitle>
+          {skills.map((item, index) => (
+            <dd key={`skill${index}`}>{item}</dd>
+          ))}
+        </SkillWrap>
+      )} */}
 
       <Line />
     </Container>
