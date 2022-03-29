@@ -25,6 +25,13 @@ const Container = styled.div`
     opacity: 0.6;
     font-size: 16px;
   }
+
+  ${media.laptopMax} {
+    margin-top: 20px;
+    .career-title {
+      font-size: 36px;
+    }
+  }
 `;
 
 const CareerTypeWrap = styled.ul`
@@ -42,6 +49,12 @@ const CareerTypeWrap = styled.ul`
     border-radius: 25px;
     border: 1px solid ${({ theme: { bgColor1 } }) => bgColor1};
   }
+  ${media.laptopMax} {
+    .carrer-type {
+      width: 120px;
+    }
+    font-size: 16px;
+  }
 `;
 
 const CareerParagraph = styled.div`
@@ -58,6 +71,9 @@ const Line = styled.i`
   /* background-color: ${({ theme: { accentColor } }) => accentColor}; */
   background-color: ${({ theme: { bgColor1 } }) => bgColor1};
   opacity: 0.6;
+  ${media.laptopMax} {
+    width: 100%;
+  }
 `;
 
 const LinkButton = styled.a`
@@ -132,6 +148,11 @@ const ImageWrap = styled.div`
   img {
     display: block;
     width: 70%;
+  }
+  ${media.laptopMax} {
+    img {
+      width: 100%;
+    }
   }
 `;
 

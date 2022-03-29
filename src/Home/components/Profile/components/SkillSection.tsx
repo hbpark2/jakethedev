@@ -22,7 +22,13 @@ const Wrap = styled.div`
   border-radius: 25px;
   margin: 20px 0 40px;
   ${media.laptopMax} {
-    margin: 20px 0;
+    &:first-child {
+      margin-top: 25px;
+    }
+    &:last-child {
+      margin-bottom: 30px;
+    }
+    margin: 10px 0;
   }
 `;
 

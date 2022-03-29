@@ -85,7 +85,6 @@ export const NameWrap = styled.div`
   line-height: 1.5em;
 
   & > div {
-    /* padding-left: 140px; */
     padding-left: 44px;
   }
   .name-span {
@@ -107,11 +106,9 @@ export const NameWrap = styled.div`
   &::before {
     content: "(00)-profile";
     display: block;
-    /* font-family: ${({ theme: { accentFont } }) => accentFont}; */
     font-family: ${({ theme: { paragraphFont } }) => paragraphFont};
     margin-bottom: 20px;
     text-align: start;
-    /* font-size: 24px; */
     font-size: 18px;
     line-height: 1em;
   }
@@ -132,6 +129,10 @@ export const NameWrap = styled.div`
     }
     .small-span {
       font-size: 28px;
+    }
+    &::before {
+      font-size: 16px;
+      margin-bottom: 0;
     }
   }
 `;
@@ -169,6 +170,7 @@ export const IntroParagraphWrap = styled.div`
     font-size: 14px;
   }
   ${media.laptopMax} {
+    padding-top: 0;
     padding-left: 0;
   }
 `;
@@ -176,34 +178,26 @@ export const IntroParagraphWrap = styled.div`
 export const IntroParagraph = styled.p`
   width: 550px;
   border-radius: 15px;
-  /* padding: 20px; */
-  /* border: 1px solid ${({ theme: { accentColor } }) => accentColor}; */
   line-height: 1.7em;
   font-size: 20px;
   ${media.laptopMax} {
     width: auto;
     font-size: 16px;
+    line-height: 1.6em;
   }
 `;
 
 export const GitHubLinkWrap = styled.span<{ isPc?: boolean }>`
   display: flex !important;
-  /* padding-left: 100px; */
-  /* padding-left: ${({ isPc }) => (isPc ? "100px" : "100px")}; */
   margin-top: ${({ isPc }) => (isPc ? "0px" : "20px")};
-  /* margin-top: 20px; */
   align-items: center;
 
   a {
-    /* margin-left: 10px; */
     line-height: 1.4em;
-    /* text-decoration-line: underline; */
   }
 
   ${media.laptopMax} {
-    flex-direction: column;
     padding: 0;
-    /* margin: 40px 0; */
     svg {
       font-size: 70px;
       margin-bottom: 20px;
@@ -290,7 +284,7 @@ export const InfoWrap = styled(NameWrap)`
 
   ul {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-top: 10px;
   }
 

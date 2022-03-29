@@ -71,8 +71,6 @@ const Profile: React.FC<{
               />
               <ul>
                 <li>Contact:&nbsp;hbpark132@gmail.com</li>
-              </ul>
-              <ul>
                 <li>
                   <GitHubLinkWrap className="pc-tablet-only" isPc={true}>
                     Git hub:
@@ -107,7 +105,10 @@ const Profile: React.FC<{
                 <br />
                 우리가 살아가는 건물의 기초가 구조인 것처럼
                 <br />
-                우리가 활동하는 웹의 기초 또한 HTML구조라고 생각합니다.
+                우리가 활동하는 웹의 기초 또한
+                {window.innerWidth < 440 && <br />}
+                HTML구조라고 생각합니다.
+                {window.innerWidth > 440 && <br />}
                 <br />
                 그렇기 때문에 웹표준과 접근성을 바탕으로
                 <br />

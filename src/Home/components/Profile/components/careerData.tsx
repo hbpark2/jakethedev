@@ -5,6 +5,7 @@ import KSALE2021IMAGE from "../../../../Assets/screen-ksale-2021.png";
 import MUTACCATOIMAGE from "../../../../Assets/screen-mutaccato.png";
 import THROADIMAGE from "../../../../Assets/screen-throad.png";
 import styled from "styled-components";
+import { media } from "../../../../Styles/theme";
 
 const Container = styled.div`
   /* background-color: rgba(255, 255, 255, 0.9);
@@ -31,18 +32,23 @@ const DescriptionUl = styled.ul`
   .description-title {
     font-weight: 600;
     margin-bottom: 5px;
+    display: flex;
+
     &::before {
       content: "🖋 ";
+      margin-right: 5px;
     }
   }
   li {
     margin: 10px 0;
   }
   dd {
+    display: flex;
     margin-left: 20px;
     font-size: 0.9em;
     &::before {
       content: "- ";
+      margin-right: 5pxl;
     }
   }
 
@@ -50,6 +56,22 @@ const DescriptionUl = styled.ul`
     display: flex;
     span {
       margin-right: 5px;
+    }
+  }
+
+  ${media.laptopMax} {
+    padding: 10px;
+    width: calc(100% - 20px);
+    line-height: 1.3em;
+    .ps {
+      font-size: 14px;
+      line-height: 1.3em;
+    }
+    .description-title {
+      font-size: 16px;
+    }
+    dd {
+      margin-left: 10px;
     }
   }
 `;
@@ -226,10 +248,8 @@ export const careerArr = [
   {
     type: "FRONT-END",
     title: "RVN",
-    subTitle: "RVN event 이벤트 페이지",
+    subTitle: "RVN event page",
     date: "2021.12.20 ~ 2021.12.23",
-    // children:
-    //   "shopify로 호스팅 중인 쇼핑몰의 이벤트 페이지 반응형 퍼블리싱을 전담했습니다.",
     children: <RVNParagraph />,
     isModal: false,
     skills: ["HTML5", "SCSS", "shopify"],
@@ -252,7 +272,7 @@ export const careerArr = [
   {
     type: "FRONT-END",
     title: "K-MAS",
-    subTitle: "중소벤처기업부 ( 이벤트 사이트 )",
+    subTitle: "중소벤처기업부 ( 행사 사이트 )",
     date: "2021.11.01 ~ 2021.12.31",
     // children:
     //   "K-MAS 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
@@ -266,7 +286,7 @@ export const careerArr = [
   {
     type: "FRONT-END",
     title: "K-SALE-2021",
-    subTitle: "동행세일 ( 이벤트 사이트 )",
+    subTitle: "동행세일 ( 행사 사이트 )",
     date: "2021.05.22 ~ 2021.07.20",
     children: <KsaleParagrpah />,
     isModal: false,
