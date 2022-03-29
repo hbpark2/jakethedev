@@ -114,7 +114,7 @@ const Home = () => {
             )}
           </>
         )}
-        <Noise />
+        {window.innerWidth > 440 && <Noise />}
       </Container>
       {modalOpen !== "" && (
         <Modal>
