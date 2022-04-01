@@ -118,6 +118,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
       text: theme.text,
       type: theme.type,
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const value: ValueType = {
