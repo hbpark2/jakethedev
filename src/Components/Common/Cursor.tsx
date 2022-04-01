@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled, { css } from "styled-components";
 import Drawing from "../../Assets/drawing-19.jpg";
 import Profile from "../../Assets/portrait-3.png";
@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { media } from "../../Styles/theme";
 import { useScroll } from "../../Hooks/Scroll";
 import { truncate } from "fs";
+import { CurrentContext } from "../../Context/ContextStore";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -127,6 +128,7 @@ interface CursorProps {
   loading?: boolean;
 }
 const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
+  const { menuOpen } = useContext(CurrentContext);
   const { scrollY } = useScroll();
   const [scrollDownText, setScrollDownText] = useState<boolean>(true);
   const location = useLocation();
@@ -181,12 +183,13 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
         role="cursor"
         currentPosition={currentPosition}
       >
-        {scrollDownText && <ScrollDownText>ScrollDown</ScrollDownText>}
+        {scrollDownText && !menuOpen && (
+          <ScrollDownText>ScrollDown</ScrollDownText>
+        )}
         {(currentPosition === "biggerLink" && "go Detail") ||
           (currentPosition === "image" && (
             <CursorTailInner>
               <Image src={Profile} alt="profileimage" />
-              {/* <span>Click</span> */}
             </CursorTailInner>
           )) ||
           (currentPosition === "jake" && (
