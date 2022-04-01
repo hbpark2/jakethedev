@@ -26,10 +26,10 @@ export const TabArr: TabStateType[] = [
     text: "Works",
     type: "Works",
   },
-  {
-    id: 4,
-    bgImage: Bubble4,
-    theme: "02",
-    text: "Resume",
-  },
+  // {
+  //   id: 4,
+  //   bgImage: Bubble4,
+  //   theme: "02",
+  //   text: "Resume",
+  // },
 ];

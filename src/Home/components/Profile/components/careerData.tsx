@@ -8,11 +8,6 @@ import styled from "styled-components";
 import { media } from "../../../../Styles/theme";
 
 const Container = styled.div`
-  /* background-color: rgba(255, 255, 255, 0.9);
-  width: calc(70% - 40px);
-  padding: 20px;
-  color: #000; */
-  /* border-radius: 15px; */
   p {
     margin-bottom: 10px;
   }
@@ -90,7 +85,7 @@ const HwamoekParagraph = () => {
             <dt className="description-title">
               유저, 식물도감, 게시글, 댓글과 답글 CRUD
             </dt>
-            <dd>Backend는 Prisma, Apollo, grpahQL로 구성했습니다.</dd>
+            <dd>Backend는 apollo-express, prisma, grpahQL로 구성했습니다.</dd>
             <dd>
               회원가입과 로그인은 카카오로그인API를 사용해 간편로그인을
               구현했습니다.
@@ -109,8 +104,8 @@ const HwamoekParagraph = () => {
         </li>
 
         <li className="ps">
-          현재 더 나은 SEO와 유지보수를 위해 NEXT와 Typescript로 바꾸는
-          고도화작업을 진행중입니다.
+          현재 UI개선, 더 나은 SEO와 유지보수를 위해 NEXT와 Typescript로 바꾸는
+          작업등의 고도화작업을 진행중입니다.
         </li>
       </DescriptionUl>
     </Container>
@@ -225,9 +220,9 @@ const MutaccatoParagrpah = () => {
         </li>
         <li className="only-list">
           <span>🖋 </span>초기에 HTML5, CSS, javascript로 구현하고 cafe24로
-          호스팅을 했고,
+          호스팅 했고,
           <br />
-          유지보수에 용이하게 현재 react로 재구성하여 netlify에 배포했습니다.
+          후에 유지보수에 용이하도록 react로 재구성하여 netlify에 배포했습니다.
         </li>
       </DescriptionUl>
     </Container>
