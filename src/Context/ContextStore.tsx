@@ -118,6 +118,7 @@ export const StoreProvider: React.FC<StoreProviderProp> = ({ children }) => {
       text: theme.text,
       type: theme.type,
     });
+    setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
