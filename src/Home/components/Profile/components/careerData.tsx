@@ -274,8 +274,8 @@ export const careerArr = [
     isModal: false,
     skills: ["HTML5", "SCSS", "shopify"],
     images: [RVNIMAGE],
-    // url: "https://rvn-event.netlify.app/",
-    url: "https://rvnnyc.com/blogs/event/holidaypromotion-2112",
+    url: "https://rvn-event.netlify.app/",
+    // url: "https://rvnnyc.com/blogs/event/holidaypromotion-2112",
   },
   // {
   //   type: "FRONT-END",
