@@ -3,9 +3,11 @@ import styled, { css } from "styled-components";
 import Drawing from "../../Assets/drawing-19.jpg";
 import Profile from "../../Assets/portrait-3.png";
 import JakeImg from "../../Assets/jake.png";
-import { CursorImage, JakeImage } from "../../Styles/animation";
+import { CursorImage, JakeImage, UpdownAni } from "../../Styles/animation";
 import { useLocation } from "react-router-dom";
 import { media } from "../../Styles/theme";
+import { useScroll } from "../../Hooks/Scroll";
+import { truncate } from "fs";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -108,6 +110,13 @@ const Jake = styled.img`
   border-bottom-right-radius: 150px;
 `;
 
+const ScrollDownText = styled.span`
+  display: block;
+  animation: ${UpdownAni} 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+`;
+
 type PostionTypes = {
   x: number;
   y: number;
@@ -118,6 +127,8 @@ interface CursorProps {
   loading?: boolean;
 }
 const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
+  const { scrollY } = useScroll();
+  const [scrollDownText, setScrollDownText] = useState<boolean>(true);
   const location = useLocation();
   const [position, setPosition] = useState<PostionTypes>({ x: -80, y: -80 });
   let mouseX = -80;
@@ -152,9 +163,16 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
 
   useEffect(() => {
     addEventListeners();
-
     return () => removeEventListeners();
   }, [location]);
+
+  useEffect(() => {
+    if (scrollY > 700) {
+      setScrollDownText(false);
+    } else {
+      setScrollDownText(true);
+    }
+  }, [scrollY]);
 
   return (
     <>
@@ -163,6 +181,7 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
         role="cursor"
         currentPosition={currentPosition}
       >
+        {scrollDownText && <ScrollDownText>ScrollDown</ScrollDownText>}
         {(currentPosition === "biggerLink" && "go Detail") ||
           (currentPosition === "image" && (
             <CursorTailInner>

@@ -1,4 +1,5 @@
 import { keyframes } from "styled-components";
+
 export const FadeIn = keyframes`
   from {
     opacity:0;
@@ -6,6 +7,18 @@ export const FadeIn = keyframes`
   to {
     opacity:1;
   }
+`;
+
+export const UpdownAni = keyframes`
+0%{
+  transform: translateY(-5px); 
+}
+50%{
+  transform: translateY(5px);
+}
+100%{
+  transform: translateY(-5px);
+}
 `;
 
 export const NoiseAni = keyframes`
