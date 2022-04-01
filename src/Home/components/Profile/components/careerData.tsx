@@ -139,7 +139,8 @@ const KmasParagrpah = () => {
         <br />
         중소·소상공인을 대상으로 판매촉진과 홍보하는 행사 플랫폼입니다.
         <br />
-        2020년, 2021년에 프론트엔드 및 퍼블리싱을 전담했습니다.
+        2020년, 2021년 각각의 프로젝트에서 프론트엔드 및 퍼블리싱을
+        전담했습니다.
         <br />
       </p>
       <p>구현한 기능은 다음과 같습니다.</p>
@@ -231,6 +232,30 @@ const MutaccatoParagrpah = () => {
 
 export const careerArr = [
   {
+    type: "FRONT-END",
+    title: "K-MAS",
+    subTitle: "중소벤처기업부 ( 행사 사이트 )",
+    date: "2021.11.01 ~ 2021.12.31",
+    // children:
+    //   "K-MAS 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
+    children: <KmasParagrpah />,
+    isModal: false,
+    skills: ["React", "Typescript", "Google Analytics"],
+    images: [KMAS2021IMAGE],
+    url: "https://k-mas.org/",
+  },
+  {
+    type: "FRONT-END",
+    title: "K-SALE-2021",
+    subTitle: "동행세일 ( 행사 사이트 )",
+    date: "2021.05.22 ~ 2021.07.20",
+    children: <KsaleParagrpah />,
+    isModal: false,
+    skills: ["React", "Typescript"],
+    images: [KSALE2021IMAGE],
+    url: "https://ksale.org/",
+  },
+  {
     type: "FRONT-END, BACK-END",
     title: "화목",
     subTitle: "화목 ( 개인 프로젝트 )",
@@ -264,31 +289,7 @@ export const careerArr = [
   //   images: [THROADIMAGE],
   //   url: "",
   // },
-  {
-    type: "FRONT-END",
-    title: "K-MAS",
-    subTitle: "중소벤처기업부 ( 행사 사이트 )",
-    date: "2021.11.01 ~ 2021.12.31",
-    // children:
-    //   "K-MAS 중소벤처기업부에서 진행한 이벤트 프로젝트에서 <br />퍼블리싱 및 Front-end 웹 개발을 전담했습니다.",
-    children: <KmasParagrpah />,
-    isModal: false,
-    skills: ["React", "Typescript", "Google Analytics"],
-    images: [KMAS2021IMAGE],
-    url: "https://k-mas.org/",
-  },
 
-  {
-    type: "FRONT-END",
-    title: "K-SALE-2021",
-    subTitle: "동행세일 ( 행사 사이트 )",
-    date: "2021.05.22 ~ 2021.07.20",
-    children: <KsaleParagrpah />,
-    isModal: false,
-    skills: ["React", "Typescript"],
-    images: [KSALE2021IMAGE],
-    url: "https://ksale.org/",
-  },
   // {
   //   type: "FRONT-END",
   //   title: "K-MAS-2020",
