@@ -68,6 +68,12 @@ const Description = styled.dl`
     font-size: 0.8em;
     opacity: 0.7;
     line-height: 1.4em;
+
+    display: flex;
+    &::before {
+      content: "- ";
+      margin-right: 5px;
+    }
   }
 `;
 
@@ -99,22 +105,24 @@ const SkillSection: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
             <Description>
               <dt>React</dt>
               <dd>
-                - useContext를 이용한 효율적인 State관리와,
+                useContext를 이용한 효율적인 State관리와,
                 <br />
-                &nbsp; useEffect, useMemo 등을 이용해
+                useEffect, useMemo 등을 이용해
                 <br />
-                &nbsp; 라이프사이클을 관리할 수 있습니다.
-                <br />- useform을 이용한 form 구현이 가능합니다.
+                라이프사이클을 관리할 수 있습니다.
               </dd>
+              <dd>useform을 이용한 form 구현(로그인, 게시판)이 가능합니다.</dd>
             </Description>
           </li>
           <li>
             <Description>
               <dt>HTML5</dt>
               <dd>
-                WAI-ARIA, Semantic을 사용해 <br />
-                SEO에 최적화된 마크업을 합니다.
-                {/** 크로스 브라우징 웹접근성 */}
+                WAI-ARIA, Semantic tag를 사용해 <br />
+                접근성과 SEO에 최적화된 마크업을 합니다.
+              </dd>
+              <dd>
+                IE8이상의 IE, 모든 브라우저에 대한 크로스브라우징이 가능합니다.
               </dd>
             </Description>
           </li>
@@ -127,8 +135,8 @@ const SkillSection: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
                 <dd>
                   CSS 작동원리를 이해하며 <br /> 자유롭게 레이아웃 구현할 수
                   있습니다. <br />
-                  미디어쿼리를 사용해 반응형 대응에 능합니다.
                 </dd>
+                <dd>미디어쿼리를 사용해 반응형 대응에 능합니다.</dd>
               </dl>
             </Description>
           </li>
@@ -142,8 +150,6 @@ const SkillSection: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
                   인터랙티브한 동적 UI 구현이 가능하고,
                   <br />
                   내장함수들을 통해 다양한 기능구현이 가능합니다.
-                  {/** 로그인, 게시판 등 구체적으로  */}
-                  {/** 고도하 ( 속도 ) 뭘 적용해서 얼만큼 줄였다. . . */}
                 </dd>
               </dl>
             </Description>
@@ -151,10 +157,9 @@ const SkillSection: React.FC<{ isHome?: boolean }> = ({ isHome }) => {
           <li>
             <Description>
               <dt>Typscript</dt>
-              <dd></dd>
+              <dd>React, styled-component 환경에서 유연하게 적용가능합니다.</dd>
             </Description>
           </li>
-
           <li>
             <Description>
               <dt>Next</dt>

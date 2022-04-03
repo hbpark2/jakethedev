@@ -3,7 +3,8 @@ import KMAS2021IMAGE from "../../../../Assets/screen-kmas-2021.png";
 import HWAMOEKIMAGE from "../../../../Assets/screen-hwamoek.png";
 import KSALE2021IMAGE from "../../../../Assets/screen-ksale-2021.png";
 import MUTACCATOIMAGE from "../../../../Assets/screen-mutaccato.png";
-import THROADIMAGE from "../../../../Assets/screen-throad.png";
+import KMASWEBASSESSIMAGE from "../../../../Assets/kmas_wev_access.png";
+
 import styled from "styled-components";
 import { media } from "../../../../Styles/theme";
 
@@ -41,9 +42,12 @@ const DescriptionUl = styled.ul`
     display: flex;
     margin-left: 20px;
     font-size: 0.9em;
+    img {
+      width: 200px;
+    }
     &::before {
       content: "- ";
-      margin-right: 5pxl;
+      margin-right: 5px;
     }
   }
 
@@ -87,11 +91,12 @@ const HwamoekParagraph = () => {
             </dt>
             <dd>Backend는 apollo-express, prisma, grpahQL로 구성했습니다.</dd>
             <dd>
-              회원가입과 로그인은 카카오로그인API를 사용해 간편로그인을
-              구현했습니다.
+              회원가입과 로그인은 카카오로그인API를 사용해 간편로그인/회원가입을
+              할 수도 있는 기능을구현했습니다.
             </dd>
             <dd>
-              게시글 수정시(Update) apollo의 cache를 사용해 로딩시간을
+              동일한 컨텐츠를 반복적으로 불러올 때(게시글 수정) 불필요한
+              API요청을 줄이고 apollo의 cache를 사용해 로딩시간을
               단축시켰습니다.
             </dd>
           </dl>
@@ -118,15 +123,38 @@ const RVNParagraph = () => {
       <p>
         shopify로 호스팅 중인 쇼핑몰의 이벤트 페이지 반응형 퍼블리싱을
         전담했습니다.
-      </p>
-      <p>
-        이미 있는 플랫폼에 페이지를 추가해야하는 상황이였기 때문에
         <br />
-        class명이 겹치지 않게, Heading태그의 중요도순으로 배치,
-        <br />
-        최대한 모든 화면에 대응하는 반응형, 웹 표준과 접근성에 신경쓰며
-        작업했습니다.
+        구현한 것은 다음과 같습니다.
       </p>
+
+      <DescriptionUl>
+        <li>
+          <dl>
+            <dt className="description-title">전체 UI개발</dt>
+            <dd>
+              이미 있는 플랫폼에 페이지를 추가해야하는 상황이였기 때문에
+              <br />
+              class가 겹치지 않게, Heading태그의 중요도순으로 배치하는 것에
+              초점을 맞추었습니다.
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">크로스 브라우징</dt>
+            <dd>모든 브라우저(IE 8+)에서 동일하게 동작합니다.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">반응형 개발</dt>
+            <dd>
+              모든 화면에 대응하는 반응형, 웹 표준과 접근성에 신경쓰며
+              작업했습니다.
+            </dd>
+          </dl>
+        </li>
+      </DescriptionUl>
     </Container>
   );
 };
@@ -147,11 +175,23 @@ const KmasParagrpah = () => {
       <DescriptionUl>
         <li>
           <dl>
+            <dt className="description-title">전체 UI개발</dt>
+            <dd>웹표준과 접근성을 준수하였습니다.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">SEO 개선</dt>
+            <dd>prerender-spa-plugin</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
             <dt className="description-title">소상공인 게시판</dt>
             <dd>
               게시글을 업로드하고 카테고리별로 검색할 수 있는 게시판입니다.
             </dd>
-            <dd>react-hook-form, yup, react-query를 사용했습니다 .</dd>
+            <dd>react-hook-form, yup, react-query를 사용했습니다.</dd>
           </dl>
         </li>
         <li>
@@ -179,6 +219,18 @@ const KsaleParagrpah = () => {
       </p>
       <p>구현한 기능은 다음과 같습니다.</p>
       <DescriptionUl>
+        <li>
+          <dl>
+            <dt className="description-title">전체 UI개발</dt>
+            <dd>웹표준과 접근성을 준수하였습니다.</dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt className="description-title">SEO 개선</dt>
+            <dd>react-app-rewired</dd>
+          </dl>
+        </li>
         <li>
           <dl>
             <dt className="description-title">소상공인 게시판</dt>

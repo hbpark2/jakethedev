@@ -9,6 +9,15 @@ import { media } from "../../Styles/theme";
 import { useScroll } from "../../Hooks/Scroll";
 import { truncate } from "fs";
 import { CurrentContext } from "../../Context/ContextStore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowAltCircleDown,
+  faArrowDown,
+  faLongArrowAltDown,
+  faMouse,
+  faScroll,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CursorTail = styled.div<{
   currentPosition?: string;
@@ -112,10 +121,16 @@ const Jake = styled.img`
 `;
 
 const ScrollDownText = styled.span`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   animation: ${UpdownAni} 1s;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
+  svg {
+    font-size: 18px;
+  }
 `;
 
 type PostionTypes = {
@@ -183,8 +198,15 @@ const Cursor: React.FC<CursorProps> = ({ currentPosition, loading }) => {
         role="cursor"
         currentPosition={currentPosition}
       >
-        {scrollDownText && !menuOpen && (
-          <ScrollDownText>ScrollDown</ScrollDownText>
+        {currentPosition === "" && scrollDownText && !menuOpen && (
+          <ScrollDownText>
+            <span>
+              <FontAwesomeIcon icon={faMouse} />
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faSortDown} />
+            </span>
+          </ScrollDownText>
         )}
         {(currentPosition === "biggerLink" && "go Detail") ||
           (currentPosition === "image" && (
